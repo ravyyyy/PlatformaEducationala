@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.IO;
 using System.Windows;
 
@@ -16,17 +17,10 @@ namespace PlatformaEducationala.Views
 
         private void IncarcaFisier_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.DefaultExt = ".txt";
-            dlg.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-
-            Nullable<bool> result = dlg.ShowDialog();
-
-            if (result == true)
-            {
-                string fileName = dlg.FileName;
-                byte[] fileData = File.ReadAllBytes(fileName);
-            }
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.ShowDialog();
+            ofd.Filter = "txt files (*.txt)|*txt|All files (*.*)|*.*";
+            ofd.DefaultExt = ".txt";
         }
     }
 }
