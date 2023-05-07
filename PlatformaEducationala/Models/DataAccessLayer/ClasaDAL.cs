@@ -51,6 +51,7 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                 SqlParameter parametruAnStudiu = new SqlParameter("@an_studiu", clasa.AnStudiu);
                 SqlParameter parametruGrupa = new SqlParameter("@grupa", clasa.Grupa);
                 SqlParameter parametruClasaId = new SqlParameter("@clasa_id", System.Data.SqlDbType.Int);
+                parametruClasaId.Direction = System.Data.ParameterDirection.Output;
                 cmd.Parameters.Add(parametruIdSpecializare);
                 cmd.Parameters.Add(parametruIdDiriginte);
                 cmd.Parameters.Add(parametruAnStudiu);

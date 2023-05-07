@@ -16,6 +16,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
 
         ClasaDAL clasaDAL = new ClasaDAL();
 
+        public ClasaBLL()
+        {
+            ListaClase = new ObservableCollection<Clasa>();
+        }
+
         public ObservableCollection<Clasa> ObtineToateClasele()
         {
             return clasaDAL.ObtineToateClasele();
@@ -80,10 +85,10 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             }
             else
             {
-                //completat cu verificarea in celelalte clase
+                //verificare elev
             }
             clasaDAL.StergereClasa(clasa);
-            //continuare
+            ListaClase.Remove(clasa);
         }
     }
 }

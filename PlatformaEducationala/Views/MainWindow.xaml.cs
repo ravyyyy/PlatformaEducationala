@@ -35,5 +35,11 @@ namespace PlatformaEducationala.Views
             Materii materii = new Materii();
             materii.Show();
         }
+
+        private void claseMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Clase clase = new Clase();
+            clase.Show();
+        }
     }
 }

@@ -23,7 +23,7 @@
                     <MenuItem Header="Elevi"/>
                     <MenuItem Header="Profesori" Click="profesoriMenuItem_Click"/>
                     <MenuItem Header="Absente"/>
-                    <MenuItem Header="Clase"/>
+                    <MenuItem Header="Clase" Click="claseMenuItem_Click"/>
                     <MenuItem Header="Materii" Click="materiiMenuItem_Click"/>
                     <MenuItem Header="Note"/>
                     <MenuItem Header="Specializari" Click="specializariMenuItem_Click"/>
