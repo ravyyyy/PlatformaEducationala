@@ -36,13 +36,17 @@
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Id Specializare:</Label>
-            <TextBox Name="txtIdSpecializare" Width="200" Text="{Binding ElementName=gridClase,
-                Path=SelectedItem.IdSpecializare, UpdateSourceTrigger=PropertyChanged}"/>
+            <!--<TextBox Name="txtIdSpecializare" Width="200" Text="{Binding ElementName=gridClase,
+                Path=SelectedItem.IdSpecializare, UpdateSourceTrigger=PropertyChanged}"/>-->
+            <ComboBox Name="txtIdSpecializare" Width="200" ItemsSource="{Binding ListaIdSpecializari}"
+          SelectedValue="{Binding ElementName=gridClase, Path=SelectedItem.IdSpecializare}"/>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Id Diriginte:</Label>
-            <TextBox Name="txtIdDiriginte" Width="200" Text="{Binding ElementName=gridClase,
-                Path=SelectedItem.IdDiriginte, UpdateSourceTrigger=PropertyChanged}"/>
+            <!--<TextBox Name="txtIdDiriginte" Width="200" Text="{Binding ElementName=gridClase,
+                Path=SelectedItem.IdDiriginte, UpdateSourceTrigger=PropertyChanged}"/>-->
+            <ComboBox Name="txtIdDiriginte" Width="200" ItemsSource="{Binding ListaIdProfesori}"
+          SelectedValue="{Binding ElementName=gridClase, Path=SelectedItem.IdProfesor}"/>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">An Studiu:</Label>

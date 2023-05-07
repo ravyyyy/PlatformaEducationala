@@ -14,6 +14,37 @@ namespace PlatformaEducationala.ViewModels
     public class ClasaVM : BasePropertyChanged
     {
         ClasaBLL clasaBLL = new ClasaBLL();
+        SpecializareBLL specializareBLL = new SpecializareBLL();
+        ProfesorBLL profesorBLL = new ProfesorBLL();
+
+        public ObservableCollection<int> ListaIdSpecializari { get; set; }
+        public ObservableCollection<int> ListaIdProfesori { get; set; }
+
+        private ObservableCollection<int> GetListaIdSpecializari()
+        {
+            ObservableCollection<int> listaIdSpecializari = new ObservableCollection<int>();
+            foreach (Specializare specializare in specializareBLL.ObtineToateSpecializarile())
+            {
+                if (!listaIdSpecializari.Contains((int)specializare.IdSpecializare))
+                {
+                    listaIdSpecializari.Add((int)specializare.IdSpecializare);
+                }
+            }
+            return listaIdSpecializari;
+        }
+
+        private ObservableCollection<int> GetListaIdProfesori()
+        {
+            ObservableCollection<int> listaIdSpecializari = new ObservableCollection<int>();
+            foreach (Profesor profesor in profesorBLL.ObtineTotiProfesorii())
+            {
+                if (!listaIdSpecializari.Contains((int)profesor.IdProfesor))
+                {
+                    listaIdSpecializari.Add((int)profesor.IdProfesor);
+                }
+            }
+            return listaIdSpecializari;
+        }
 
         #region Data Members
 
@@ -28,6 +59,8 @@ namespace PlatformaEducationala.ViewModels
         public ClasaVM()
         {
             ListaClase = clasaBLL.ObtineToateClasele();
+            ListaIdSpecializari = GetListaIdSpecializari();
+            ListaIdProfesori = GetListaIdProfesori();
         }
 
         #region Command Members
