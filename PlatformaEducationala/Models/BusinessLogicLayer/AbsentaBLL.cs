@@ -66,5 +66,25 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             absentaDAL.StergereAbsenta(absenta);
             ListaAbsente.Remove(absenta);
         }
+
+        public void ObtineToateAbsenteleDupaElev(Elev elev)
+        {
+            ListaAbsente.Clear();
+            var absente = absentaDAL.ObtineToateAbsenteleDupaElev(elev);
+            foreach (var absenta in absente)
+            {
+                ListaAbsente.Add(absenta);
+            }
+        }
+
+        public void ObtineToateAbsenteleDupaMaterie(Materie materie)
+        {
+            ListaAbsente.Clear();
+            var absente = absentaDAL.ObtineToateAbsenteleDupaMaterie(materie);
+            foreach (var absenta in absente)
+            {
+                ListaAbsente.Add(absenta);
+            }
+        }
     }
 }

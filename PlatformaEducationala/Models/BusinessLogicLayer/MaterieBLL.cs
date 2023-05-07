@@ -1,6 +1,7 @@
 ﻿using PlatformaEducationala.Exceptions;
 using PlatformaEducationala.Models.DataAccessLayer;
 using PlatformaEducationala.Models.EntityLayer;
+using PlatformaEducationala.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -83,9 +84,17 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             }
             else
             {
-                //verificare in absenta
+                AbsentaDAL absentaDAL = new AbsentaDAL();
+                if (absentaDAL.ObtineToateAbsenteleDupaMaterie(materie).Count > 0)
+                {
+                    throw new AgendaException("Trebuie sa stergeti mai intai absentele pentru materia cu ID-ul " + materie.IdMaterie);
+                }
                 //verificare in medie
-                //verificare in nota
+                NotaDAL notaDAL = new NotaDAL();
+                if (notaDAL.ObtineToateNoteleDupaMaterie(materie).Count > 0)
+                {
+                    throw new AgendaException("Trebuie sa stergeti mai intai notele pentru materia cu ID-ul " + materie.IdMaterie);
+                }
             }
             materieDAL.StergereMaterie(materie);
             ListaMaterii.Remove(materie);

@@ -90,7 +90,7 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             else
             {
                 ClasaDAL clasaDAL = new ClasaDAL();
-                if(clasaDAL.ObtineToateClaseleDupaProfesor(profesor).Count > 0)
+                if (clasaDAL.ObtineToateClaseleDupaProfesor(profesor).Count > 0)
                 {
                     throw new AgendaException("Trebuie sa stergeti mai intai Clasele acestui Profesor!");
                 }

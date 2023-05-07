@@ -53,5 +53,11 @@ namespace PlatformaEducationala.Views
             Absente absente = new Absente();
             absente.Show();
         }
+
+        private void noteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Note note = new Note();
+            note.Show();
+        }
     }
 }

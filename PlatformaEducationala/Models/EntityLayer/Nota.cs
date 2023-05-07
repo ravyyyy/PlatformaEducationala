@@ -6,7 +6,9 @@
         private int? idMaterie;
         private int valoare;
         private bool esteTeza;
+        private int semestru;
         private bool medieIncheiata;
+        private int? idElev;
 
         public int? IdNota
         {
@@ -60,6 +62,19 @@
             }
         }
 
+        public int Semestru
+        {
+            get
+            {
+                return semestru;
+            }
+            set
+            {
+                semestru = value;
+                NotifyPropertyChanged("Semestru");
+            }
+        }
+
         public bool MedieIncheiata
         {
             get
@@ -70,6 +85,19 @@
             {
                 medieIncheiata = value;
                 NotifyPropertyChanged("MedieIncheiata");
+            }
+        }
+
+        public int? IdElev
+        {
+            get
+            {
+                return idElev;
+            }
+            set
+            {
+                idElev = value;
+                NotifyPropertyChanged("IdElev");
             }
         }
     }

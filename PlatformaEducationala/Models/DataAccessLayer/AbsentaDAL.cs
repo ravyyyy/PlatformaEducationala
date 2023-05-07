@@ -91,5 +91,57 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public ObservableCollection<Absenta> ObtineToateAbsenteleDupaElev(Elev elev)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                ObservableCollection<Absenta> rezultat = new ObservableCollection<Absenta>();
+                SqlCommand cmd = new SqlCommand("ObtineToateAbsenteleDupaElev", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter parametruElevId = new SqlParameter("@elev_id", elev.IdElev);
+                cmd.Parameters.Add(parametruElevId);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    rezultat.Add(new Absenta()
+                    {
+                        IdAbsenta = reader.GetInt32(0),
+                        IdMaterie = reader.GetInt32(1),
+                        IdElev = reader.GetInt32(2),
+                        DataAbsenta = reader.GetDateTime(3),
+                        EsteMotivata = reader.GetBoolean(4)
+                    });
+                }
+                return rezultat;
+            }
+        }
+
+        public ObservableCollection<Absenta> ObtineToateAbsenteleDupaMaterie(Materie materie)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                ObservableCollection<Absenta> rezultat = new ObservableCollection<Absenta>();
+                SqlCommand cmd = new SqlCommand("ObtineToateAbsenteleDupaMaterie", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter parametruMaterieId = new SqlParameter("@materie_id", materie.IdMaterie);
+                cmd.Parameters.Add(parametruMaterieId);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    rezultat.Add(new Absenta()
+                    {
+                        IdAbsenta = reader.GetInt32(0),
+                        IdMaterie = reader.GetInt32(1),
+                        IdElev = reader.GetInt32(2),
+                        DataAbsenta = reader.GetDateTime(3),
+                        EsteMotivata = reader.GetBoolean(4)
+                    });
+                }
+                return rezultat;
+            }
+        }
     }
 }

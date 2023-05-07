@@ -107,7 +107,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             }
             else
             {
-                //verificare absenta
+                AbsentaDAL absentaDAL = new AbsentaDAL();
+                if (absentaDAL.ObtineToateAbsenteleDupaElev(elev).Count() > 0)
+                {
+                    throw new AgendaException("Trebuie sa stergeti mai intai absentele pentru elevul cu ID-ul " + elev.IdElev);
+                }
                 //verificare medie
             }
             eleviDAL.StergereElev(elev);

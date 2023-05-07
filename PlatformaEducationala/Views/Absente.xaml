@@ -7,7 +7,7 @@
         xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
         xmlns:local="clr-namespace:PlatformaEducationala.Views"
         mc:Ignorable="d"
-        Title="Absente" Height="450" Width="800">
+        Title="Absente" Height="450" Width="479">
     <Window.DataContext>
         <ctx:AbsentaVM/>
     </Window.DataContext>
