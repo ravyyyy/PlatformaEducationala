@@ -14,6 +14,22 @@ namespace PlatformaEducationala.ViewModels
     public class ElevVM : BasePropertyChanged
     {
         ElevBLL elevBLL = new ElevBLL();
+        ClasaBLL clasaBLL = new ClasaBLL();
+
+        public ObservableCollection<int> ListaIdClase {  get; set; }
+
+        private ObservableCollection<int> GetListaIdClase()
+        {
+            ObservableCollection<int> listaIdClase = new ObservableCollection<int>();
+            foreach (Clasa clasa in clasaBLL.ObtineToateClasele())
+            {
+                if (!listaIdClase.Contains((int)clasa.IdClasa))
+                {
+                    listaIdClase.Add((int)clasa.IdClasa);
+                }
+            }
+            return listaIdClase;
+        }
 
         #region Data Members
 
@@ -28,6 +44,7 @@ namespace PlatformaEducationala.ViewModels
         public ElevVM()
         {
             ListaElevi = elevBLL.ObtineTotiElevii();
+            ListaIdClase = GetListaIdClase();
         }
 
         #region Command Members

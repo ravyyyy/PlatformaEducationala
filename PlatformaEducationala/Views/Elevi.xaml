@@ -69,8 +69,10 @@
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Id Clasa:</Label>
-            <TextBox Name="txtIdClasa" Width="200" Text="{Binding ElementName=gridElevi,
-                Path=SelectedItem.IdClasa, UpdateSourceTrigger=PropertyChanged}"/>
+            <!--<TextBox Name="txtIdClasa" Width="200" Text="{Binding ElementName=gridElevi,
+                Path=SelectedItem.IdClasa, UpdateSourceTrigger=PropertyChanged}"/>-->
+            <ComboBox Name="txtIdClasa" Width="200" ItemsSource="{Binding ListaIdClase}"
+          SelectedValue="{Binding ElementName=gridElevi, Path=SelectedItem.IdClasa}"/>
         </WrapPanel>
         <DataGrid Name="gridElevi" Margin="0,15,0,0" AutoGenerateColumns="False"
                   Height="250" ItemsSource="{Binding ListaElevi}" IsReadOnly="True"
