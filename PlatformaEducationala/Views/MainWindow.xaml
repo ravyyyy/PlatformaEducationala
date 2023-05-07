@@ -1,0 +1,72 @@
+﻿<Window x:Class="PlatformaEducationala.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Platforma Educationala" Height="350" Width="450">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Height="30" FontSize="15" FontWeight="Bold">
+            <Menu.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFCA4D11" Offset="0.528"/>
+                    <GradientStop Color="#FFF7641E" Offset="0.01"/>
+                    <GradientStop Color="#FFF57537" Offset="1"/>
+                    <GradientStop Color="#FFA93F0C" Offset="1"/>
+                </LinearGradientBrush>
+            </Menu.Background>
+            <MenuItem Header="Administrator">
+                <MenuItem.Icon>
+                    <Image Source="/Images/administrator.png" Width="20" Height="20"/>
+                </MenuItem.Icon>
+                <MenuItem Header="Operatii CRUD">
+                    <MenuItem Header="Elevi"/>
+                    <MenuItem Header="Profesori" Click="profesoriMenuItem_Click"/>
+                    <MenuItem Header="Absente"/>
+                    <MenuItem Header="Clase"/>
+                    <MenuItem Header="Materii"/>
+                    <MenuItem Header="Note"/>
+                    <MenuItem Header="Specializari" Click="specializariMenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="Clasa - Specializare - Materie"/>
+                <MenuItem Header="Profesor - Materie - Clasa"/>
+                <MenuItem Header="Elev - Clasa - Specializare"/>
+            </MenuItem>
+            <MenuItem Header="Profesor">
+                <MenuItem.Icon>
+                    <Image Source="/Images/profesor.jpg" Width="20" Height="20"/>
+                </MenuItem.Icon>
+                <MenuItem Header="Absente"/>
+                <MenuItem Header="Note"/>
+                <MenuItem Header="Material Didactic"/>
+                <MenuItem Header="Medii"/>
+            </MenuItem>
+            <MenuItem Header="Diriginte">
+                <MenuItem.Icon>
+                    <Image Source="/Images/diriginte.jpg" Width="20" Height="20"/>
+                </MenuItem.Icon>
+                <MenuItem Header="Motivare Absente"/>
+                <MenuItem Header="Vizualizare Absente"/>
+                <MenuItem Header="Vizualizare Absente Nemotivate"/>
+                <MenuItem Header="Vizualizare Medii Finale"/>
+                <MenuItem Header="Vizualizare Ierarhie"/>
+                <MenuItem Header="Vizualizare Premianti"/>
+                <MenuItem Header="Afisare Elevi in Situatie de Exmatriculare"/>
+            </MenuItem>
+            <MenuItem Header="Elev">
+                <MenuItem.Icon>
+                    <Image Source="/Images/elev.jpg" Width="20" Height="20"/>
+                </MenuItem.Icon>
+                <MenuItem Header="Material Didactic"/>
+                <MenuItem Header="Note"/>
+                <MenuItem Header="Absente"/>
+                <MenuItem Header="Medii"/>
+            </MenuItem>
+        </Menu>
+        <WrapPanel>
+            <WrapPanel.Background>
+                <SolidColorBrush Color="#FFCE6820"/>
+            </WrapPanel.Background>
+        </WrapPanel>
+    </DockPanel>
+</Window>
