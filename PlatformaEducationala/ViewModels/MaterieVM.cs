@@ -1,4 +1,5 @@
 ﻿using PlatformaEducationala.Models.BusinessLogicLayer;
+using PlatformaEducationala.Models.DataAccessLayer;
 using PlatformaEducationala.Models.EntityLayer;
 using PlatformaEducationala.ViewModels.Commands;
 using System;
@@ -14,6 +15,22 @@ namespace PlatformaEducationala.ViewModels
     public class MaterieVM : BasePropertyChanged
     {
         MaterieBLL materieBLL = new MaterieBLL();
+        ProfesorBLL profesorBLL = new ProfesorBLL();
+
+        public ObservableCollection<int> ListaIdProfesori { get; set; }
+
+        public ObservableCollection<int> GetListaIdProfesori()
+        {
+            ObservableCollection<int> listaIdProfesori = new ObservableCollection<int>();
+            foreach (Profesor profesor in profesorBLL.ObtineTotiProfesorii())
+            {
+                if (!listaIdProfesori.Contains((int)profesor.IdProfesor))
+                {
+                    listaIdProfesori.Add((int)profesor.IdProfesor);
+                }
+            }
+            return listaIdProfesori;
+        }
 
         #region Data Members
 
@@ -28,6 +45,7 @@ namespace PlatformaEducationala.ViewModels
         public MaterieVM()
         {
             ListaMaterie = materieBLL.ObtineToateMateriile();
+            ListaIdProfesori = GetListaIdProfesori();
         }
 
         #region Command Members

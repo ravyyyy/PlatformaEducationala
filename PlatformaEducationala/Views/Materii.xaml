@@ -41,8 +41,10 @@
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Id Profesor:</Label>
-            <TextBox Name="txtIdProfesor" Width="200" Text="{Binding ElementName=gridMaterii,
-                Path=SelectedItem.IdProfesor, UpdateSourceTrigger=PropertyChanged}"/>
+            <!--<TextBox Name="txtIdProfesor" Width="200" Text="{Binding ElementName=gridMaterii,
+                Path=SelectedItem.IdProfesor, UpdateSourceTrigger=PropertyChanged}"/>-->
+            <ComboBox Name="txtIdProfesor" Width="200" ItemsSource="{Binding ListaIdProfesori}"
+          SelectedValue="{Binding ElementName=gridMaterii, Path=SelectedItem.IdProfesor}"/>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Are Teza:</Label>
