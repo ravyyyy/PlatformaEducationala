@@ -65,5 +65,11 @@ namespace PlatformaEducationala.Views
             Medii medii = new Medii();
             medii.Show();
         }
+
+        private void materialeMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Materiale materiale = new Materiale();
+            materiale.Show();
+        }
     }
 }

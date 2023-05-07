@@ -99,6 +99,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
                 {
                     throw new AgendaException("Trebuie sa stergeti mai intai notele pentru materia cu ID-ul " + materie.IdMaterie);
                 }
+                MaterialDAL materialDAL = new MaterialDAL();
+                if (materialDAL.ObtineToateMaterialeleDupaMaterie(materie).Count > 0)
+                {
+                    throw new AgendaException("Trebuie sa stergeti mai intai materialele pentru materia cu ID-ul " + materie.IdMaterie);
+                }
             }
             materieDAL.StergereMaterie(materie);
             ListaMaterii.Remove(materie);
