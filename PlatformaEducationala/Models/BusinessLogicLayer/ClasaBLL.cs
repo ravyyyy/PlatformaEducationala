@@ -85,7 +85,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             }
             else
             {
-                //verificare elev
+                ElevDAL elevDAL = new ElevDAL();
+                if (elevDAL.ObtineTotiEleviiDupaClasa(clasa).Count > 0)
+                {
+                    throw new AgendaException("Trebuie sa stergeti mai intai elevii din clasa " + clasa.Grupa);
+                }
             }
             clasaDAL.StergereClasa(clasa);
             ListaClase.Remove(clasa);

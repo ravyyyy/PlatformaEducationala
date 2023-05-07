@@ -26,6 +26,16 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             return eleviDAL.ObtineTotiElevii();
         }
 
+        public void ObtineTotiEleviiDupaClasa(Clasa clasa)
+        {
+            ListaElevi.Clear();
+            var elevi = eleviDAL.ObtineTotiEleviiDupaClasa(clasa);
+            foreach (var elev in elevi)
+            {
+                ListaElevi.Add(elev);
+            }
+        }
+
         public void InserareElev(Elev elev)
         {
             if (string.IsNullOrEmpty(elev.Nume))

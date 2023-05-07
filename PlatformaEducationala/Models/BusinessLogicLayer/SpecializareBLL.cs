@@ -58,7 +58,6 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             }
             else
             {
-                //completare cu verificare in celelalte clase daca exista
                 ClasaDAL clasaDAL = new ClasaDAL();
                 if (clasaDAL.ObtineToateClaseleDupaSpecializare(specializare).Count > 0)
                 {

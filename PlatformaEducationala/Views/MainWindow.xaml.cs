@@ -47,5 +47,11 @@ namespace PlatformaEducationala.Views
             Elevi elevi = new Elevi();
             elevi.Show();
         }
+
+        private void absenteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Absente absente = new Absente();
+            absente.Show();
+        }
     }
 }

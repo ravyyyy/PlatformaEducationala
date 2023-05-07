@@ -22,7 +22,7 @@
                 <MenuItem Header="Operatii CRUD">
                     <MenuItem Header="Elevi" Click="eleviMenuItem_Click"/>
                     <MenuItem Header="Profesori" Click="profesoriMenuItem_Click"/>
-                    <MenuItem Header="Absente"/>
+                    <MenuItem Header="Absente" Click="absenteMenuItem_Click"/>
                     <MenuItem Header="Clase" Click="claseMenuItem_Click"/>
                     <MenuItem Header="Materii" Click="materiiMenuItem_Click"/>
                     <MenuItem Header="Note"/>

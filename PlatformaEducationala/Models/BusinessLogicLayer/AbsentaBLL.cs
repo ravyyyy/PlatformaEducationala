@@ -1,4 +1,5 @@
-﻿using PlatformaEducationala.Models.DataAccessLayer;
+﻿using PlatformaEducationala.Exceptions;
+using PlatformaEducationala.Models.DataAccessLayer;
 using PlatformaEducationala.Models.EntityLayer;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,55 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
 
         AbsentaDAL absentaDAL = new AbsentaDAL();
 
+        public AbsentaBLL()
+        {
+            ListaAbsente = new ObservableCollection<Absenta>();
+        }
+
+        public ObservableCollection<Absenta> ObtineToateAbsentele()
+        {
+            return absentaDAL.ObtineToateAbsentele();
+        }
+
         public void InserareAbsenta(Absenta absenta)
         {
+            if (string.IsNullOrEmpty(absenta.IdMaterie.ToString()))
+            {
+                throw new AgendaException("Id-ul materiei la care este absenta trebuie precizat.");
+            }
+            if (string.IsNullOrEmpty(absenta.IdElev.ToString()))
+            {
+                throw new AgendaException("Id-ul elevului care a primit absenta trebuie precizat.");
+            }
+            absentaDAL.InserareAbsenta(absenta);
+            ListaAbsente.Add(absenta);
+        }
 
+        public void ActualizareAbsenta(Absenta absenta)
+        {
+            if (absenta == null)
+            {
+                throw new AgendaException("Trebuie selectata o absenta.");
+            }
+            if (string.IsNullOrEmpty(absenta.IdMaterie.ToString()))
+            {
+                throw new AgendaException("Id-ul materiei la care este absenta trebuie precizat.");
+            }
+            if (string.IsNullOrEmpty(absenta.IdElev.ToString()))
+            {
+                throw new AgendaException("Id-ul elevului care a primit absenta trebuie precizat.");
+            }
+            absentaDAL.ActualizareAbsenta(absenta);
+        }
+
+        public void StergereAbsenta(Absenta absenta)
+        {
+            if (absenta == null)
+            {
+                throw new AgendaException("Trebuie selectata o absenta.");
+            }
+            absentaDAL.StergereAbsenta(absenta);
+            ListaAbsente.Remove(absenta);
         }
     }
 }
