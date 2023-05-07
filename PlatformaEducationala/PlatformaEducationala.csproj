@@ -60,18 +60,25 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\ConvertorClasa.cs" />
+    <Compile Include="Converters\ConvertorElev.cs" />
     <Compile Include="Converters\ConvertorMaterie.cs" />
     <Compile Include="Converters\ConvertorProfesor.cs" />
     <Compile Include="Converters\ConvertorSpecializare.cs" />
+    <Compile Include="Models\BusinessLogicLayer\ElevBLL.cs" />
     <Compile Include="Models\BusinessLogicLayer\MaterieBLL.cs" />
     <Compile Include="Models\BusinessLogicLayer\ProfesorBLL.cs" />
+    <Compile Include="Models\DataAccessLayer\ElevDAL.cs" />
     <Compile Include="Models\DataAccessLayer\MaterieDAL.cs" />
     <Compile Include="Models\DataAccessLayer\ProfesorDAL.cs" />
     <Compile Include="ViewModels\ClasaVM.cs" />
+    <Compile Include="ViewModels\ElevVM.cs" />
     <Compile Include="ViewModels\MaterieVM.cs" />
     <Compile Include="ViewModels\ProfesorVM.cs" />
     <Compile Include="Views\Clase.xaml.cs">
       <DependentUpon>Clase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Elevi.xaml.cs">
+      <DependentUpon>Elevi.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Materii.xaml.cs">
       <DependentUpon>Materii.xaml</DependentUpon>
@@ -83,6 +90,10 @@
       <DependentUpon>Specializari.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\Clase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Elevi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

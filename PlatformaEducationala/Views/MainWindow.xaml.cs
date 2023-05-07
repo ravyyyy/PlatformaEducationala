@@ -41,5 +41,11 @@ namespace PlatformaEducationala.Views
             Clase clase = new Clase();
             clase.Show();
         }
+
+        private void eleviMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Elevi elevi = new Elevi();
+            elevi.Show();
+        }
     }
 }

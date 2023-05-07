@@ -1,0 +1,89 @@
+﻿<Window x:Class="PlatformaEducationala.Views.Elevi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
+        xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
+        xmlns:local="clr-namespace:PlatformaEducationala.Views"
+        mc:Ignorable="d"
+        Title="Elevi" Height="567" Width="654">
+    <Window.DataContext>
+        <ctx:ElevVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:ConvertorElev x:Key="elevConvert"/>
+        </StackPanel.Resources>
+        <WrapPanel>
+            <Button Content="Inserare" Margin="15" Width="100" Height="30"
+                    Command="{Binding ComandaInserare}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource elevConvert}">
+                        <Binding ElementName="txtNume" Path="Text"/>
+                        <Binding ElementName="txtPrenume" Path="Text"/>
+                        <Binding ElementName="txtDataNastere" Path="Text"/>
+                        <Binding ElementName="txtAdresa" Path="Text"/>
+                        <Binding ElementName="txtNumarTelefon" Path="Text"/>
+                        <Binding ElementName="txtEmail" Path="Text"/>
+                        <Binding ElementName="txtIdClasa" Path="Text"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+            <Button Content="Actualizare" Margin="15" Width="100" Command="{Binding ComandaActualizare}"
+                    CommandParameter="{Binding ElementName=gridElevi, Path=SelectedItem}"/>
+            <Button Content="Stergere" Margin="15" Width="100" Command="{Binding ComandaStergere}"
+                    CommandParameter="{Binding ElementName=gridElevi, Path=SelectedItem}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Nume:</Label>
+            <TextBox Name="txtNume" Width="200" Text="{Binding ElementName=gridElevi,
+                Path=SelectedItem.Nume, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Prenume:</Label>
+            <TextBox Name="txtPrenume" Width="200" Text="{Binding ElementName=gridElevi,
+                Path=SelectedItem.Prenume, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Data Nastere:</Label>
+            <DatePicker Name="txtDataNastere" Width="200" Text="{Binding ElementName=gridElevi,
+                Path=SelectedItem.DataNastere, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Adresa:</Label>
+            <TextBox Name="txtAdresa" Width="200" Text="{Binding ElementName=gridElevi,
+                Path=SelectedItem.Adresa, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Numar Telefon:</Label>
+            <TextBox Name="txtNumarTelefon" Width="200" Text="{Binding ElementName=gridElevi,
+                Path=SelectedItem.NumarTelefon, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Email:</Label>
+            <TextBox Name="txtEmail" Width="200" Text="{Binding ElementName=gridElevi,
+                Path=SelectedItem.Email, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Id Clasa:</Label>
+            <TextBox Name="txtIdClasa" Width="200" Text="{Binding ElementName=gridElevi,
+                Path=SelectedItem.IdClasa, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <DataGrid Name="gridElevi" Margin="0,15,0,0" AutoGenerateColumns="False"
+                  Height="250" ItemsSource="{Binding ListaElevi}" IsReadOnly="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nume" Binding="{Binding Nume}"/>
+                <DataGridTextColumn Header="Prenume" Binding="{Binding Prenume}"/>
+                <DataGridTextColumn Header="Data Nastere" Binding="{Binding DataNastere}"/>
+                <DataGridTextColumn Header="Adresa" Binding="{Binding Adresa}"/>
+                <DataGridTextColumn Header="Numar Telefon" Binding="{Binding NumarTelefon}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Id Clasa" Binding="{Binding IdClasa}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>
