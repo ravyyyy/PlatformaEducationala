@@ -15,6 +15,37 @@ namespace PlatformaEducationala.ViewModels
     public class AbsentaVM : BasePropertyChanged
     {
         AbsentaBLL absentaBLL = new AbsentaBLL();
+        MaterieBLL materieBLL = new MaterieBLL();
+        ElevBLL elevBLL = new ElevBLL();
+
+        public ObservableCollection<int> ListaIdMaterie { get; set; }
+        public ObservableCollection<int> ListaIdElev { get; set; }
+
+        private ObservableCollection<int> GetListaIdMaterii()
+        {
+            ObservableCollection<int> listaIdClase = new ObservableCollection<int>();
+            foreach (Materie materie in materieBLL.ObtineToateMateriile())
+            {
+                if (!listaIdClase.Contains((int)materie.IdMaterie))
+                {
+                    listaIdClase.Add((int)materie.IdMaterie);
+                }
+            }
+            return listaIdClase;
+        }
+
+        private ObservableCollection<int> GetListaIdElevi()
+        {
+            ObservableCollection<int> listaIdClase = new ObservableCollection<int>();
+            foreach (Elev elev in elevBLL.ObtineTotiElevii())
+            {
+                if (!listaIdClase.Contains((int)elev.IdElev))
+                {
+                    listaIdClase.Add((int)elev.IdElev);
+                }
+            }
+            return listaIdClase;
+        }
 
         #region Data Members
 
@@ -29,6 +60,8 @@ namespace PlatformaEducationala.ViewModels
         public AbsentaVM()
         {
             ListaAbsente = absentaBLL.ObtineToateAbsentele();
+            ListaIdMaterie = GetListaIdMaterii();
+            ListaIdElev = GetListaIdElevi();
         }
 
         #region Command Members
