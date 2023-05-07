@@ -89,7 +89,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
                 {
                     throw new AgendaException("Trebuie sa stergeti mai intai absentele pentru materia cu ID-ul " + materie.IdMaterie);
                 }
-                //verificare in medie
+                MedieDAL medieDAL = new MedieDAL();
+                if (medieDAL.ObtineToateMediileDupaMaterie(materie).Count > 0)
+                {
+                    throw new AgendaException("Trebuie sa stergeti mai intai mediile pentru materia cu ID-ul " + materie.IdMaterie);
+                }
                 NotaDAL notaDAL = new NotaDAL();
                 if (notaDAL.ObtineToateNoteleDupaMaterie(materie).Count > 0)
                 {

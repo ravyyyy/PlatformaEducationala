@@ -27,6 +27,7 @@
                     <MenuItem Header="Materii" Click="materiiMenuItem_Click"/>
                     <MenuItem Header="Note" Click="noteMenuItem_Click"/>
                     <MenuItem Header="Specializari" Click="specializariMenuItem_Click"/>
+                    <MenuItem Header="Medii" Click="mediiMenuItem_Click"/>
                 </MenuItem>
                 <MenuItem Header="Clasa - Specializare - Materie"/>
                 <MenuItem Header="Profesor - Materie - Clasa"/>

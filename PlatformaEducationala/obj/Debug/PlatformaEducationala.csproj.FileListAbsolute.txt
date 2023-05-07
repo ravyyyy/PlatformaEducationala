@@ -54,3 +54,5 @@ D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\
 D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Absente.baml
 D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Note.g.cs
 D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Note.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Medii.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Medii.baml

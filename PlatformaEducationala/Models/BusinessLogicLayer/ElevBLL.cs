@@ -112,7 +112,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
                 {
                     throw new AgendaException("Trebuie sa stergeti mai intai absentele pentru elevul cu ID-ul " + elev.IdElev);
                 }
-                //verificare medie
+                MedieDAL medieDAL = new MedieDAL();
+                if (medieDAL.ObtineToateMediileDupaElev(elev).Count() > 0)
+                {
+                    throw new AgendaException("Trebuie sa stergeti mai intai mediile pentru elevul cu ID-ul " + elev.IdElev);
+                }
             }
             eleviDAL.StergereElev(elev);
             ListaElevi.Remove(elev);

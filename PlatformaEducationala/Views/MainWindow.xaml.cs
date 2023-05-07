@@ -59,5 +59,11 @@ namespace PlatformaEducationala.Views
             Note note = new Note();
             note.Show();
         }
+
+        private void mediiMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Medii medii = new Medii();
+            medii.Show();
+        }
     }
 }
