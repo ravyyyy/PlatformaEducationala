@@ -31,6 +31,16 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             }
         }
 
+        public void ObtineToateClaseleDupaProfesor(Profesor profesor)
+        {
+            ListaClase.Clear();
+            var clase = clasaDAL.ObtineToateClaseleDupaProfesor(profesor);
+            foreach (var clasa in clase)
+            {
+                ListaClase.Add(clasa);
+            }
+        }
+
         public void InserareClasa(Clasa clasa)
         {
             if (string.IsNullOrEmpty(clasa.AnStudiu.ToString()))

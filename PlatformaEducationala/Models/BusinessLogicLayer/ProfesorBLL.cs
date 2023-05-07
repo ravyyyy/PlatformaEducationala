@@ -89,8 +89,16 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             }
             else
             {
-                // verificare in clasa
-                // verificare in materie
+                ClasaDAL clasaDAL = new ClasaDAL();
+                if(clasaDAL.ObtineToateClaseleDupaProfesor(profesor).Count > 0)
+                {
+                    throw new AgendaException("Trebuie sa stergeti mai intai Clasele acestui Profesor!");
+                }
+                MaterieDAL materieDAL = new MaterieDAL();
+                if (materieDAL.ObtineToateMateriileDupaProfesor(profesor).Count > 0)
+                {
+                    throw new AgendaException("Trebuie sa stergeti mai intai Materiile acestui Profesor!");
+                }
             }
             profesoriDAL.StergereProfesor(profesor);
             ListaProfesori.Remove(profesor);

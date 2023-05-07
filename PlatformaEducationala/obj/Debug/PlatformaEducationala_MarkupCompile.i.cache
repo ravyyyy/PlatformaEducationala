@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\drago\source\repos\PlatformaEducationala\PlatformaEducationala\obj\Debug\
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\
 PlatformaEducationala
 none
 false
 DEBUG;TRACE
-C:\Users\drago\source\repos\PlatformaEducationala\PlatformaEducationala\App.xaml
-3426544250
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\App.xaml
+4308212089
 
-33-336902562
-15-1341283539
-Views\MainWindow.xaml;Views\Profesori.xaml;Views\Specializari.xaml;
+37-1655454602
+15-403622609
+Views\MainWindow.xaml;Views\Materii.xaml;Views\Profesori.xaml;Views\Specializari.xaml;
 
-False
+True
 

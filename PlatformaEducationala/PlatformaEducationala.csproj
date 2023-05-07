@@ -59,12 +59,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\ConvertorMaterie.cs" />
     <Compile Include="Converters\ConvertorProfesor.cs" />
     <Compile Include="Converters\ConvertorSpecializare.cs" />
+    <Compile Include="Models\BusinessLogicLayer\MaterieBLL.cs" />
     <Compile Include="Models\BusinessLogicLayer\ProfesorBLL.cs" />
     <Compile Include="Models\DataAccessLayer\MaterieDAL.cs" />
     <Compile Include="Models\DataAccessLayer\ProfesorDAL.cs" />
+    <Compile Include="ViewModels\MaterieVM.cs" />
     <Compile Include="ViewModels\ProfesorVM.cs" />
+    <Compile Include="Views\Materii.xaml.cs">
+      <DependentUpon>Materii.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Profesori.xaml.cs">
       <DependentUpon>Profesori.xaml</DependentUpon>
     </Compile>
@@ -102,6 +108,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Materii.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Profesori.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

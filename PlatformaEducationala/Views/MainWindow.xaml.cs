@@ -29,5 +29,11 @@ namespace PlatformaEducationala.Views
             Profesori profesori = new Profesori();
             profesori.Show();
         }
+
+        private void materiiMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Materii materii = new Materii();
+            materii.Show();
+        }
     }
 }

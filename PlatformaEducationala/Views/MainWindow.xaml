@@ -24,7 +24,7 @@
                     <MenuItem Header="Profesori" Click="profesoriMenuItem_Click"/>
                     <MenuItem Header="Absente"/>
                     <MenuItem Header="Clase"/>
-                    <MenuItem Header="Materii"/>
+                    <MenuItem Header="Materii" Click="materiiMenuItem_Click"/>
                     <MenuItem Header="Note"/>
                     <MenuItem Header="Specializari" Click="specializariMenuItem_Click"/>
                 </MenuItem>

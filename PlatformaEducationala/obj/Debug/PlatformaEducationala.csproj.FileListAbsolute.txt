@@ -21,3 +21,28 @@ C:\Users\drago\source\repos\PlatformaEducationala\PlatformaEducationala\obj\Debu
 C:\Users\drago\source\repos\PlatformaEducationala\PlatformaEducationala\bin\Debug\AttachedCommandBehavior.dll
 C:\Users\drago\source\repos\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Profesori.baml
 C:\Users\drago\source\repos\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala.csproj.CopyComplete
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\bin\Debug\PlatformaEducationala.exe.config
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\bin\Debug\PlatformaEducationala.exe
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\bin\Debug\PlatformaEducationala.pdb
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\bin\Debug\AttachedCommandBehavior.dll
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala.csproj.AssemblyReference.cache
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala.csproj.SuggestedBindingRedirects.cache
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\MainWindow.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\MainWindow.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Materii.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Profesori.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Specializari.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\App.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala_MarkupCompile.cache
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala_MarkupCompile.lref
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Profesori.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Specializari.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\Materii.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala.g.resources
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala.Properties.Resources.resources
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala.csproj.GenerateResource.cache
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala.csproj.CoreCompileInputs.cache
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala.csproj.CopyComplete
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala.exe
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\PlatformaEducationala.pdb
