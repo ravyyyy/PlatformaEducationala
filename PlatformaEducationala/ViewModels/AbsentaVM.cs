@@ -15,7 +15,8 @@ namespace PlatformaEducationala.ViewModels
     public class AbsentaVM : BasePropertyChanged
     {
         AbsentaBLL absentaBLL = new AbsentaBLL();
-        MaterieBLL materieBLL = new MaterieBLL();
+        public MaterieBLL materieBLL = new MaterieBLL();
+        public ProfesorBLL profesorBLL = new ProfesorBLL();
         ElevBLL elevBLL = new ElevBLL();
 
         public ObservableCollection<int> ListaIdMaterie { get; set; }

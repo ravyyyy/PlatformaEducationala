@@ -92,5 +92,10 @@ namespace PlatformaEducationala.Views
                 MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK);
             }
         }
+
+        private void profesoriNoteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

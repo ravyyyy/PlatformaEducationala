@@ -46,7 +46,7 @@
             <Label Width="150" FontSize="15">Id Materie:</Label>
             <!--<TextBox Name="txtIdMaterie" Width="200" Text="{Binding ElementName=absenteDG,
                 Path=SelectedItem.IdMaterie, UpdateSourceTrigger=PropertyChanged}"/>-->
-            <ComboBox Name="txtIdMaterie" Width="200" ItemsSource="{Binding ListaIdMaterie}"
+            <ComboBox Name="txtIdMaterie" Width="200"
           SelectedValue="{Binding ElementName=absenteDG, Path=SelectedItem.IdMaterie}"/>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">

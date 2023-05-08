@@ -37,6 +37,17 @@ namespace PlatformaEducationala.Views
             AbsentaVM absentaVM = this.DataContext as AbsentaVM;
             absente = absentaVM.GetListaAbsenteProfesori(profesorId);
             absenteDG.ItemsSource = absente;
+            Profesor profesor = absentaVM.profesorBLL.ObtineProfesorDupaId(profesorId);
+            absentaVM.materieBLL.ObtineToateMateriileDupaProfesor(profesor);
+            ObservableCollection<int> materii = new ObservableCollection<int>();
+            foreach (Materie materie in absentaVM.materieBLL.ListaMaterii)
+            {
+                if (!materii.Contains((int)materie.IdMaterie))
+                {
+                    materii.Add((int)materie.IdMaterie);
+                }
+            }
+            txtIdMaterie.ItemsSource = materii;
         }
     }
 }

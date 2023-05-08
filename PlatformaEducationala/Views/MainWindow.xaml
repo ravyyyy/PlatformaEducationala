@@ -43,7 +43,7 @@
                     <Image Source="/Images/profesor.jpg" Width="20" Height="20"/>
                 </MenuItem.Icon>
                 <MenuItem Header="Absente" Click="profesoriAbsenteMenuItem_Click"/>
-                <MenuItem Header="Note"/>
+                <MenuItem Header="Note" Click="profesoriNoteMenuItem_Click"/>
                 <MenuItem Header="Material Didactic"/>
                 <MenuItem Header="Medii"/>
             </MenuItem>
