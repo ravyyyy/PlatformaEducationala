@@ -67,5 +67,10 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             specializareDAL.StergereSpecializare(specializare);
             ListaSpecializare.Remove(specializare);
         }
+
+        //public string ObtineSpecializareDupaSpecializare(int specializareId)
+        //{
+        //    return specializareDAL.ObtineSpecializareDupaSpecializare(specializareId);
+        //}
     }
 }

@@ -40,6 +40,26 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             }
         }
 
+        public int ObtineAnStudiuDupaClasa(int clasa)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                int rezultat = 0;
+                SqlCommand cmd = new SqlCommand("ObtineAnStudiuDupaClasa", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter parametruClasaId = new SqlParameter("@clasa_id", clasa);
+                cmd.Parameters.Add(parametruClasaId);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    rezultat = (int)reader[0];
+                    break;
+                }
+                return rezultat;
+            }
+        }
+
         public void InserareClasa(Clasa clasa)
         {
             using (SqlConnection con = DALHelper.Connection)

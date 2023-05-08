@@ -71,5 +71,11 @@ namespace PlatformaEducationala.Views
             Materiale materiale = new Materiale();
             materiale.Show();
         }
+
+        private void elevAnStudiuSpecializareMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ElevAnStudiuSpecializare elevAnStudiuSpecializare = new ElevAnStudiuSpecializare();
+            elevAnStudiuSpecializare.Show();
+        }
     }
 }

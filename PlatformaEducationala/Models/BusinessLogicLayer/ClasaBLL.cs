@@ -16,14 +16,22 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
 
         ClasaDAL clasaDAL = new ClasaDAL();
 
+        int anStudiu;
+
         public ClasaBLL()
         {
             ListaClase = new ObservableCollection<Clasa>();
+            anStudiu = 0;
         }
 
         public ObservableCollection<Clasa> ObtineToateClasele()
         {
             return clasaDAL.ObtineToateClasele();
+        }
+
+        public int ObtineAnStudiuDupaClasa(int clasa)
+        {
+            return clasaDAL.ObtineAnStudiuDupaClasa(clasa);
         }
 
         public void ObtineToateClaseleDupaSpecializare(Specializare specializare)

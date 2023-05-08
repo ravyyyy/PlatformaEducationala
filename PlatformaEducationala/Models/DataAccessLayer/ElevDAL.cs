@@ -38,6 +38,32 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             }
         }
 
+        public Elev ObtineElevDupaId(int elevId)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                Elev rezultat = new Elev();
+                SqlCommand cmd = new SqlCommand("ObtineElevDupaId", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter parametruElevId = new SqlParameter("@elev_id", elevId);
+                cmd.Parameters.Add(parametruElevId);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    rezultat.IdElev = (int)reader[0];
+                    rezultat.Nume = reader[1].ToString();
+                    rezultat.Prenume = reader[2].ToString();    
+                    rezultat.DataNastere = (DateTime)reader[3];
+                    rezultat.Adresa = reader[4].ToString();
+                    rezultat.NumarTelefon = reader[5].ToString();
+                    rezultat.Email = reader[6].ToString();
+                    rezultat.IdClasa = (int)reader[7];
+                }
+                return rezultat;
+            }
+        }
+
         public ObservableCollection<Elev> ObtineTotiEleviiDupaClasa(Clasa clasa)
         {
             using (SqlConnection con = DALHelper.Connection)

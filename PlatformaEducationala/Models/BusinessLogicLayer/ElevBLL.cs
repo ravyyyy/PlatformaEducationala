@@ -36,6 +36,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             }
         }
 
+        public Elev ObtineElevDupaId(int elevId)
+        {
+            return eleviDAL.ObtineElevDupaId(elevId);
+        }
+
         public void InserareElev(Elev elev)
         {
             if (string.IsNullOrEmpty(elev.Nume))

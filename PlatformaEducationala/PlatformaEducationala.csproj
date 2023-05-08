@@ -83,6 +83,7 @@
     <Compile Include="Models\EntityLayer\Material.cs" />
     <Compile Include="ViewModels\AbsentaVM.cs" />
     <Compile Include="ViewModels\ClasaVM.cs" />
+    <Compile Include="ViewModels\ElevAnStudiuSpecializareVM.cs" />
     <Compile Include="ViewModels\ElevVM.cs" />
     <Compile Include="ViewModels\MaterialVM.cs" />
     <Compile Include="ViewModels\MaterieVM.cs" />
@@ -94,6 +95,9 @@
     </Compile>
     <Compile Include="Views\Clase.xaml.cs">
       <DependentUpon>Clase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ElevAnStudiuSpecializare.xaml.cs">
+      <DependentUpon>ElevAnStudiuSpecializare.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Elevi.xaml.cs">
       <DependentUpon>Elevi.xaml</DependentUpon>
@@ -121,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Clase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ElevAnStudiuSpecializare.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

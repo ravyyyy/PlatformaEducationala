@@ -32,7 +32,7 @@
                 </MenuItem>
                 <MenuItem Header="Clasa - Specializare - Materie"/>
                 <MenuItem Header="Profesor - Materie - Clasa"/>
-                <MenuItem Header="Elev - Clasa - Specializare"/>
+                <MenuItem Header="Elev - Clasa - Specializare" Click="elevAnStudiuSpecializareMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Profesor">
                 <MenuItem.Icon>

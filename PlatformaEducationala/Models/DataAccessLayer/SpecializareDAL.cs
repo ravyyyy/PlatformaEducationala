@@ -32,6 +32,25 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             }
         }
 
+        //public string ObtineSpecializareDupaSpecializare(int specializareId)
+        //{
+        //    using (SqlConnection con = DALHelper.Connection)
+        //    {
+        //        string rezultat = "";
+        //        SqlCommand cmd = new SqlCommand("ObtineSpecializareDupaSpecializare", con);
+        //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+        //        SqlParameter parametruSpecializareId = new SqlParameter("@specializare_id", specializareId);
+        //        cmd.Parameters.Add(parametruSpecializareId);
+        //        con.Open();
+        //        SqlDataReader reader = cmd.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+        //            rezultat = reader[0].ToString();
+        //        }
+        //        return rezultat;
+        //    }
+        //}
+
         public void InserareSpecializare(Specializare specializare)
         {
             using (SqlConnection con = DALHelper.Connection)
