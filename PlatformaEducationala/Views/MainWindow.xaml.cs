@@ -4,6 +4,7 @@ using PlatformaEducationala.ViewModels;
 using System;
 using System.Data.SqlClient;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Markup;
 
 namespace PlatformaEducationala.Views
@@ -17,6 +18,7 @@ namespace PlatformaEducationala.Views
         {
             InitializeComponent();
         }
+
 
         private void specializariMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -76,6 +78,19 @@ namespace PlatformaEducationala.Views
         {
             ElevAnStudiuSpecializare elevAnStudiuSpecializare = new ElevAnStudiuSpecializare();
             elevAnStudiuSpecializare.Show();
+        }
+
+        private void profesoriAbsenteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (profesoriCB.SelectedItem != null)
+            {
+                ProfesoriAbsente profesoriAbsente = new ProfesoriAbsente((int)profesoriCB.SelectedItem);
+                profesoriAbsente.Show();
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK);
+            }
         }
     }
 }

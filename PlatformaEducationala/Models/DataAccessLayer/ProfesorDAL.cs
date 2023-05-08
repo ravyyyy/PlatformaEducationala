@@ -38,6 +38,32 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             }
         }
 
+        public Profesor ObtineProfesorDupaId(int idProfesor)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                Profesor profesor = new Profesor();
+                SqlCommand cmd = new SqlCommand("ObtineProfesorDupaId", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter parametruProfesorId = new SqlParameter("@profesor_id", idProfesor);
+                cmd.Parameters.Add(parametruProfesorId);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    profesor.IdProfesor = (int)(reader[0]);
+                    profesor.Nume = reader[1].ToString();
+                    profesor.Prenume = reader[2].ToString();
+                    profesor.DataNastere = reader.GetDateTime(3);
+                    profesor.Adresa = reader[4].ToString();
+                    profesor.NumarTelefon = reader[5].ToString();
+                    profesor.Email = reader[6].ToString();
+                    profesor.EsteDiriginte = Convert.ToBoolean(reader[7].ToString());
+                }
+                return profesor;
+            }
+        }
+
         public void InserareProfesor(Profesor profesor)
         {
             using (SqlConnection con = DALHelper.Connection)

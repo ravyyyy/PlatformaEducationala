@@ -3,8 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
         mc:Ignorable="d"
         Title="Platforma Educationala" Height="350" Width="450">
+    <Window.DataContext>
+        <ctx:MainWindowVM/>
+    </Window.DataContext>
     <DockPanel>
         <Menu DockPanel.Dock="Top" Height="30" FontSize="15" FontWeight="Bold">
             <Menu.Background>
@@ -38,7 +42,7 @@
                 <MenuItem.Icon>
                     <Image Source="/Images/profesor.jpg" Width="20" Height="20"/>
                 </MenuItem.Icon>
-                <MenuItem Header="Absente"/>
+                <MenuItem Header="Absente" Click="profesoriAbsenteMenuItem_Click"/>
                 <MenuItem Header="Note"/>
                 <MenuItem Header="Material Didactic"/>
                 <MenuItem Header="Medii"/>
@@ -69,6 +73,18 @@
             <WrapPanel.Background>
                 <SolidColorBrush Color="#FFCE6820"/>
             </WrapPanel.Background>
+            <WrapPanel Margin="0,15,0,0">
+                <Label Width="150">Id Profesor:</Label>
+                <ComboBox x:Name="profesoriCB" Width="200" ItemsSource="{Binding Profesori}"></ComboBox>
+            </WrapPanel>
+            <WrapPanel Margin="0,15,0,0">
+                <Label Width="150">Id Diriginte:</Label>
+                <ComboBox x:Name="dirigintiCB" Width="200" ItemsSource="{Binding Diriginti}"></ComboBox>
+            </WrapPanel>
+            <WrapPanel Margin="0,15,0,0">
+                <Label Width="150">Id Elev:</Label>
+                <ComboBox x:Name="eleviCB" Width="200" ItemsSource="{Binding Elevi}"></ComboBox>
+            </WrapPanel>
         </WrapPanel>
     </DockPanel>
 </Window>

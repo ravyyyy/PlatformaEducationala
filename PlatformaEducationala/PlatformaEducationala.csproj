@@ -85,6 +85,7 @@
     <Compile Include="ViewModels\ClasaVM.cs" />
     <Compile Include="ViewModels\ElevAnStudiuSpecializareVM.cs" />
     <Compile Include="ViewModels\ElevVM.cs" />
+    <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="ViewModels\MaterialVM.cs" />
     <Compile Include="ViewModels\MaterieVM.cs" />
     <Compile Include="ViewModels\MedieVM.cs" />
@@ -116,6 +117,9 @@
     </Compile>
     <Compile Include="Views\Profesori.xaml.cs">
       <DependentUpon>Profesori.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfesoriAbsente.xaml.cs">
+      <DependentUpon>ProfesoriAbsente.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Specializari.xaml.cs">
       <DependentUpon>Specializari.xaml</DependentUpon>
@@ -184,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Profesori.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfesoriAbsente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

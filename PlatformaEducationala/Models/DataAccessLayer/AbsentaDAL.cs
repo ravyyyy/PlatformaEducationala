@@ -143,5 +143,31 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                 return rezultat;
             }
         }
+
+        public ObservableCollection<Absenta> ObtineToateAbsenteleDupaMaterieDupaProfesor(int profesorId)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                ObservableCollection<Absenta> rezultat = new ObservableCollection<Absenta>();
+                SqlCommand cmd = new SqlCommand("ObtineToateAbsenteleDupaMaterieDupaProfesor", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter parametruProfesorId = new SqlParameter("@profesor_id", profesorId);
+                cmd.Parameters.Add(parametruProfesorId);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    rezultat.Add(new Absenta()
+                    {
+                        IdAbsenta = reader.GetInt32(0),
+                        IdMaterie = reader.GetInt32(1),
+                        IdElev = reader.GetInt32(2),
+                        DataAbsenta = reader.GetDateTime(3),
+                        EsteMotivata = reader.GetBoolean(4)
+                    });
+                }
+                return rezultat;
+            }
+        }
     }
 }

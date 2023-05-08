@@ -26,6 +26,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             return profesoriDAL.ObtineTotiProfesorii();
         }
 
+        public Profesor ObtineProfesorDupaId(int profesorId)
+        {
+            return profesoriDAL.ObtineProfesorDupaId(profesorId);
+        }
+
         public void InserareProfesor(Profesor profesor)
         {
             if (string.IsNullOrEmpty(profesor.Nume))

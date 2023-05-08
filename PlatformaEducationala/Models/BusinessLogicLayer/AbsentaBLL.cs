@@ -26,6 +26,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             return absentaDAL.ObtineToateAbsentele();
         }
 
+        public ObservableCollection<Absenta> ObtineToateAbsenteleDupaMaterieDupaProfesor(int idProfesor)
+        {
+            return absentaDAL.ObtineToateAbsenteleDupaMaterieDupaProfesor(idProfesor);
+        }
+
         public void InserareAbsenta(Absenta absenta)
         {
             if (string.IsNullOrEmpty(absenta.IdMaterie.ToString()))

@@ -1,0 +1,70 @@
+﻿<Window x:Class="PlatformaEducationala.Views.ProfesoriAbsente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
+        xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
+        xmlns:local="clr-namespace:PlatformaEducationala.Views"
+        mc:Ignorable="d"
+        Title="ProfesoriAbsente" Height="576" Width="420">
+    <Window.DataContext>
+        <ctx:AbsentaVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:ConvertorAbsenta x:Key="absentaConvert"/>
+        </StackPanel.Resources>
+        <DataGrid x:Name="absenteDG" Margin="0,15,0,0" AutoGenerateColumns="False"
+                  Height="250" IsReadOnly="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id Materie" Binding="{Binding IdMaterie}"/>
+                <DataGridTextColumn Header="Id Elev" Binding="{Binding IdElev}"/>
+                <DataGridTextColumn Header="Data Absenta" Binding="{Binding DataAbsenta}"/>
+                <DataGridTextColumn Header="Este Motivata" Binding="{Binding EsteMotivata}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel>
+            <Button Content="Inserare" Margin="15" Width="100" Height="30"
+                    Command="{Binding ComandaInserare}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource absentaConvert}">
+                        <Binding ElementName="txtIdMaterie" Path="Text"/>
+                        <Binding ElementName="txtIdElev" Path="Text"/>
+                        <Binding ElementName="txtDataAbsenta" Path="Text"/>
+                        <Binding ElementName="txtEsteMotivata" Path="IsChecked"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+            <Button Content="Motivate Absenta" Margin="15" Width="100" Command="{Binding ComandaActualizare}"
+                    CommandParameter="{Binding ElementName=absenteDG, Path=SelectedItem}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Id Materie:</Label>
+            <!--<TextBox Name="txtIdMaterie" Width="200" Text="{Binding ElementName=absenteDG,
+                Path=SelectedItem.IdMaterie, UpdateSourceTrigger=PropertyChanged}"/>-->
+            <ComboBox Name="txtIdMaterie" Width="200" ItemsSource="{Binding ListaIdMaterie}"
+          SelectedValue="{Binding ElementName=absenteDG, Path=SelectedItem.IdMaterie}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Id Elev:</Label>
+            <!--<TextBox Name="txtIdElev" Width="200" Text="{Binding ElementName=absenteDG,
+                Path=SelectedItem.IdElev, UpdateSourceTrigger=PropertyChanged}"/>-->
+            <ComboBox Name="txtIdElev" Width="200" ItemsSource="{Binding ListaIdElev}"
+          SelectedValue="{Binding ElementName=absenteDG, Path=SelectedItem.IdElev}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Data Absenta:</Label>
+            <DatePicker Name="txtDataAbsenta" Width="200" Text="{Binding ElementName=absenteDG,
+                Path=SelectedItem.DataAbsenta, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Este Motivata:</Label>
+            <CheckBox Name="txtEsteMotivata" Width="200" IsChecked="{Binding ElementName=absenteDG,
+                Path=SelectedItem.EsteMotivata, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+    </StackPanel>
+</Window>

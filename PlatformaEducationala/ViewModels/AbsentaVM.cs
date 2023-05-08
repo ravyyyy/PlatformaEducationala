@@ -20,6 +20,7 @@ namespace PlatformaEducationala.ViewModels
 
         public ObservableCollection<int> ListaIdMaterie { get; set; }
         public ObservableCollection<int> ListaIdElev { get; set; }
+        public ObservableCollection<Absenta> ListaAbsenteProfesori { get; set; }
 
         private ObservableCollection<int> GetListaIdMaterii()
         {
@@ -45,6 +46,11 @@ namespace PlatformaEducationala.ViewModels
                 }
             }
             return listaIdClase;
+        }
+
+        public ObservableCollection<Absenta> GetListaAbsenteProfesori(int id)
+        {
+            return absentaBLL.ObtineToateAbsenteleDupaMaterieDupaProfesor(id);
         }
 
         #region Data Members
