@@ -26,6 +26,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             return notaDAL.ObtineToateNotele();
         }
 
+        public ObservableCollection<Nota> ObtineToateNoteleDupaMaterieDupaProfesor(int profesorId)
+        {
+            return notaDAL.ObtineToateAbsenteleDupaMaterieDupaProfesor(profesorId);
+        }
+
         public void ObtineToateNoteleDupaMaterie(Materie materie)
         {
             ListaNote.Clear();

@@ -1,0 +1,84 @@
+﻿<Window x:Class="PlatformaEducationala.Views.ProfesoriNote"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
+        xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
+        xmlns:local="clr-namespace:PlatformaEducationala.Views"
+        mc:Ignorable="d"
+        Title="ProfesoriNote" Height="674" Width="439">
+    <Window.DataContext>
+        <ctx:NotaVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:ConvertorNota x:Key="notaConvert"/>
+        </StackPanel.Resources>
+        <DataGrid x:Name="noteDG" Margin="0,15,0,0" AutoGenerateColumns="False"
+                  Height="250" IsReadOnly="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id Materie" Binding="{Binding IdMaterie}"/>
+                <DataGridTextColumn Header="Valoare" Binding="{Binding Valoare}"/>
+                <DataGridTextColumn Header="Este Teza" Binding="{Binding EsteTeza}"/>
+                <DataGridTextColumn Header="Semestru" Binding="{Binding Semestru}"/>
+                <DataGridTextColumn Header="Medie Incheiata" Binding="{Binding MedieIncheiata}"/>
+                <DataGridTextColumn Header="Id Elev" Binding="{Binding IdElev}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel>
+            <Button Content="Inserare" Margin="15" Width="100" Height="30"
+                    Command="{Binding ComandaInserare}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource notaConvert}">
+                        <Binding ElementName="txtIdMaterie" Path="Text"/>
+                        <Binding ElementName="txtValoare" Path="Text"/>
+                        <Binding ElementName="txtEsteTeza" Path="IsChecked"/>
+                        <Binding ElementName="txtSemestru" Path="Text"/>
+                        <Binding ElementName="txtMedieIncheiata" Path="IsChecked"/>
+                        <Binding ElementName="txtIdElev" Path="Text"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+            <Button Content="Anulare Nota" Margin="15" Width="100" Command="{Binding ComandaStergere}"
+                    CommandParameter="{Binding ElementName=noteDG, Path=SelectedItem}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Id Materie:</Label>
+            <!--<TextBox Name="txtIdMaterie" Width="200" Text="{Binding ElementName=noteDG,
+                Path=SelectedItem.IdMaterie, UpdateSourceTrigger=PropertyChanged}"/>-->
+            <ComboBox Name="txtIdMaterie" Width="200"
+          SelectedValue="{Binding ElementName=noteDG, Path=SelectedItem.IdMaterie}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Valoare:</Label>
+            <!--<TextBox Name="txtIdElev" Width="200" Text="{Binding ElementName=noteDG,
+                Path=SelectedItem.IdElev, UpdateSourceTrigger=PropertyChanged}"/>-->
+            <TextBox Name="txtValoare" Width="200" Text="{Binding ElementName=noteDG,
+           Path=SelectedItem.IdElev, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Este Teza:</Label>
+            <CheckBox Name="txtEsteTeza" Width="200" IsChecked="{Binding ElementName=noteDG,
+                Path=SelectedItem.EsteTeza, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Semestru:</Label>
+            <TextBox Name="txtSemestru" Width="200" Text="{Binding ElementName=noteDG,
+                Path=SelectedItem.Semestru, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Medie Incheiata:</Label>
+            <CheckBox Name="txtMedieIncheiata" Width="200" IsChecked="{Binding ElementName=noteDG,
+                Path=SelectedItem.MedieIncheiata, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Id Elev:</Label>
+            <ComboBox Name="txtIdElev" Width="200"
+          SelectedValue="{Binding ElementName=noteDG, Path=SelectedItem.IdElev}"/>
+        </WrapPanel>
+    </StackPanel>
+</Window>

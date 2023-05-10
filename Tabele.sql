@@ -728,3 +728,14 @@ BEGIN
 	INNER JOIN Materie M ON A.id_materie = M.id_materie
 	WHERE M.id_profesor = @profesor_id
 END
+
+GO
+CREATE PROCEDURE ObtineToateNoteleDupaMaterieDupaProfesor
+	@profesor_id INT
+AS
+BEGIN
+	SELECT N.id_nota, N.id_materie, N.valoare, N.este_teza, N.semestru, N.medie_incheiata, N.id_elev
+	FROM Nota N
+	INNER JOIN Materie M ON N.id_materie = M.id_materie
+	WHERE M.id_profesor = @profesor_id
+END

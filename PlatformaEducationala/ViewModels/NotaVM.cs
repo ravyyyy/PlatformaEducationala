@@ -13,9 +13,10 @@ namespace PlatformaEducationala.ViewModels
 {
     public class NotaVM : BasePropertyChanged
     {
-        NotaBLL notaBLL = new NotaBLL();
-        MaterieBLL materieBLL = new MaterieBLL();
-        ElevBLL elevBLL = new ElevBLL();
+        public NotaBLL notaBLL = new NotaBLL();
+        public MaterieBLL materieBLL = new MaterieBLL();
+        public ElevBLL elevBLL = new ElevBLL();
+        public ProfesorBLL profesorBLL = new ProfesorBLL();
 
         public ObservableCollection<int> ListaIdMaterii { get; set; }
         public ObservableCollection<int> ListaIdElevi { get; set; }
@@ -44,6 +45,11 @@ namespace PlatformaEducationala.ViewModels
                 }
             }
             return listaIdElevi;
+        }
+
+        public ObservableCollection<Nota> GetListaNoteProfesori(int profesorId)
+        {
+            return notaBLL.ObtineToateNoteleDupaMaterieDupaProfesor(profesorId);
         }
 
         #region Data Members

@@ -95,7 +95,15 @@ namespace PlatformaEducationala.Views
 
         private void profesoriNoteMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            if (profesoriCB.SelectedItem != null)
+            {
+                ProfesoriNote profesoriNote = new ProfesoriNote((int)profesoriCB.SelectedItem);
+                profesoriNote.Show();
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK);
+            }
         }
     }
 }
