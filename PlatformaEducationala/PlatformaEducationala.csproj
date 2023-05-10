@@ -121,6 +121,9 @@
     <Compile Include="Views\ProfesoriAbsente.xaml.cs">
       <DependentUpon>ProfesoriAbsente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProfesoriMateriale.xaml.cs">
+      <DependentUpon>ProfesoriMateriale.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProfesoriNote.xaml.cs">
       <DependentUpon>ProfesoriNote.xaml</DependentUpon>
     </Compile>
@@ -195,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProfesoriAbsente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfesoriMateriale.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

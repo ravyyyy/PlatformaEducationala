@@ -26,6 +26,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             return materialDAL.ObtineToateMaterialele();
         }
 
+        public ObservableCollection<Material> ObtineToateMaterialeleDupaMaterieDupaProfesor(int profesorId)
+        {
+            return materialDAL.ObtineToateMaterialeleDupaMaterieDupaProfesor(profesorId);
+        }
+
         public void InserareMaterial(Material material)
         {
             if (string.IsNullOrEmpty(material.IdMaterie.ToString()))

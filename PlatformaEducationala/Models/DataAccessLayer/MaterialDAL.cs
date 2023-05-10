@@ -105,5 +105,29 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                 return rezultat;
             }
         }
+
+        public ObservableCollection<Material> ObtineToateMaterialeleDupaMaterieDupaProfesor(int profesorId)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                ObservableCollection<Material> rezultat = new ObservableCollection<Material>();
+                SqlCommand cmd = new SqlCommand("ObtineToateMaterialeleDupaMaterieDupaProfesor", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter parametruProfesorId = new SqlParameter("@profesor_id", profesorId);
+                cmd.Parameters.Add(parametruProfesorId);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    rezultat.Add(new Material()
+                    {
+                        IdMaterial = reader.GetInt32(0),
+                        IdMaterie = reader.GetInt32(1),
+                        Fisier = (byte[])reader[2]
+                    });
+                }
+                return rezultat;
+            }
+        }
     }
 }

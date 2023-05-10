@@ -15,7 +15,8 @@ namespace PlatformaEducationala.ViewModels
     public class MaterialVM : BasePropertyChanged
     {
         MaterialBLL materialBLL = new MaterialBLL();
-        MaterieBLL materieBLL = new MaterieBLL();
+        public MaterieBLL materieBLL = new MaterieBLL();
+        public ProfesorBLL profesorBLL = new ProfesorBLL();
 
         public ObservableCollection<int> ListaIdMaterii { get; set; }
 
@@ -30,6 +31,11 @@ namespace PlatformaEducationala.ViewModels
                 }
             }
             return listaIdMaterii;
+        }
+
+        public ObservableCollection<Material> GetListaMaterialeProfesori(int id)
+        {
+            return materialBLL.ObtineToateMaterialeleDupaMaterieDupaProfesor(id);
         }
 
         #region Data Members

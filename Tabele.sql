@@ -739,3 +739,14 @@ BEGIN
 	INNER JOIN Materie M ON N.id_materie = M.id_materie
 	WHERE M.id_profesor = @profesor_id
 END
+
+GO
+CREATE PROCEDURE ObtineToateMaterialeleDupaMaterieDupaProfesor
+	@profesor_id INT
+AS
+BEGIN
+	SELECT M.id_material, M.id_materie, M.fisier
+	FROM Material M
+	INNER JOIN Materie Ma ON Ma.id_materie = M.id_materie
+	WHERE Ma.id_profesor = @profesor_id
+END

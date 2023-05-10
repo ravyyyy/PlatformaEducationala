@@ -105,5 +105,18 @@ namespace PlatformaEducationala.Views
                 MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK);
             }
         }
+
+        private void profesoriMaterialeMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (profesoriCB.SelectedItem != null)
+            {
+                ProfesoriMateriale profesoriMateriale = new ProfesoriMateriale((int)profesoriCB.SelectedItem);
+                profesoriMateriale.Show();
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK);
+            }
+        }
     }
 }
