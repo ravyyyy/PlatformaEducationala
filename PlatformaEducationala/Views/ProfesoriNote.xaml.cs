@@ -39,22 +39,24 @@ namespace PlatformaEducationala.Views
             noteDG.ItemsSource = note;
             Profesor profesor = notaVM.profesorBLL.ObtineProfesorDupaId(profesorId);
             notaVM.materieBLL.ObtineToateMateriileDupaProfesor(profesor);
-            ObservableCollection<int> materii = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> materii = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Materie materie in notaVM.materieBLL.ListaMaterii)
             {
-                if (!materii.Contains((int)materie.IdMaterie))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(materie.Nume, (int)materie.IdMaterie);
+                if (!materii.Contains(pair))
                 {
-                    materii.Add((int)materie.IdMaterie);
+                    materii.Add(pair);
                 }
             }
             txtIdMaterie.ItemsSource = materii;
             notaVM.elevBLL.ListaElevi = notaVM.elevBLL.ObtineTotiElevii();
-            ObservableCollection<int> elevi = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> elevi = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Elev elev in notaVM.elevBLL.ListaElevi)
             {
-                if (!elevi.Contains((int)elev.IdElev))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(elev.Nume, (int)elev.IdElev);
+                if (!elevi.Contains(pair))
                 {
-                    elevi.Add((int)elev.IdElev);
+                    elevi.Add(pair);
                 }
             }
             txtIdElev.ItemsSource = elevi;

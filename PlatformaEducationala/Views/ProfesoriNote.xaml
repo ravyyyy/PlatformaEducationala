@@ -47,7 +47,7 @@
         <WrapPanel Margin="0,15,0,0">
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
-            <Label Width="150" FontSize="15">Id Materie:</Label>
+            <Label Width="150" FontSize="15">Nume + Id Materie:</Label>
             <!--<TextBox Name="txtIdMaterie" Width="200" Text="{Binding ElementName=noteDG,
                 Path=SelectedItem.IdMaterie, UpdateSourceTrigger=PropertyChanged}"/>-->
             <ComboBox Name="txtIdMaterie" Width="200"
@@ -76,7 +76,7 @@
                 Path=SelectedItem.MedieIncheiata, UpdateSourceTrigger=PropertyChanged}"/>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
-            <Label Width="150" FontSize="15">Id Elev:</Label>
+            <Label Width="150" FontSize="15">Nume + Id Elev:</Label>
             <ComboBox Name="txtIdElev" Width="200"
           SelectedValue="{Binding ElementName=noteDG, Path=SelectedItem.IdElev}"/>
         </WrapPanel>
