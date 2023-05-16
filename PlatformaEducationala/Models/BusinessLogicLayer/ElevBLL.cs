@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Media3D;
 
 namespace PlatformaEducationala.Models.BusinessLogicLayer
 {
@@ -34,6 +35,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             {
                 ListaElevi.Add(elev);
             }
+        }
+
+        public ObservableCollection<Elev> ObtineTotiEleviiDupaMaterieDupaProfesor(int profesorId)
+        {
+            return eleviDAL.ObtineTotiEleviiDupaMaterieDupaProfesor(profesorId);
         }
 
         public Elev ObtineElevDupaId(int elevId)

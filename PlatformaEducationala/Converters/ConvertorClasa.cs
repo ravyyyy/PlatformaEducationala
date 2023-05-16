@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
 
 namespace PlatformaEducationala.Converters
@@ -12,16 +13,28 @@ namespace PlatformaEducationala.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            int specializareId;
-            int diriginteId;
+            string specializare = (string)values[0];
+            string diriginte = (string)values[1];
+            int specializareId = -1;
+            int diriginteId = -1;
             int anStudiu;
-            if (!int.TryParse(values[0].ToString(), out specializareId))
+            string[] parts = specializare.Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length > 1)
             {
-                return null;
+                string lastPart = parts[1].Trim();
+                if (!int.TryParse(lastPart, out specializareId))
+                {
+                    return null;
+                }
             }
-            if (!int.TryParse(values[1].ToString(), out diriginteId))
+            parts = diriginte.Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length > 1)
             {
-                return null;
+                string lastPart = parts[1].Trim();
+                if (!int.TryParse(lastPart, out diriginteId))
+                {
+                    return null;
+                }
             }
             if (!int.TryParse(values[2].ToString(), out anStudiu))
             {

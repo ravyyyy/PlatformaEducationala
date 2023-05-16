@@ -124,6 +124,9 @@
     <Compile Include="Views\ProfesoriMateriale.xaml.cs">
       <DependentUpon>ProfesoriMateriale.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProfesoriMedii.xaml.cs">
+      <DependentUpon>ProfesoriMedii.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProfesoriNote.xaml.cs">
       <DependentUpon>ProfesoriNote.xaml</DependentUpon>
     </Compile>
@@ -202,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProfesoriMateriale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfesoriMedii.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

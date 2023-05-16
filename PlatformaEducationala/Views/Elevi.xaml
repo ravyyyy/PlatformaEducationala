@@ -72,7 +72,21 @@
             <!--<TextBox Name="txtIdClasa" Width="200" Text="{Binding ElementName=gridElevi,
                 Path=SelectedItem.IdClasa, UpdateSourceTrigger=PropertyChanged}"/>-->
             <ComboBox Name="txtIdClasa" Width="200" ItemsSource="{Binding ListaIdClase}"
-          SelectedValue="{Binding ElementName=gridElevi, Path=SelectedItem.IdClasa}"/>
+          SelectedValue="{Binding ElementName=gridElevi, Path=SelectedItem.IdClasa}"
+                      SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </WrapPanel>
         <DataGrid Name="gridElevi" Margin="0,15,0,0" AutoGenerateColumns="False"
                   Height="250" ItemsSource="{Binding ListaElevi}" IsReadOnly="True"

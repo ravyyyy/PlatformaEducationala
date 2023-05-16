@@ -12,13 +12,20 @@ namespace PlatformaEducationala.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            int materieId;
+            string materie = (string)values[0];
+            string elev = (string)values[5];
+            int materieId = -1;
             int valoare;
             int semestru;
-            int elevId;
-            if (!int.TryParse(values[0].ToString(), out materieId))
+            int elevId = -1;
+            string[] parts = materie.Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length > 1)
             {
-                return null;
+                string lastPart = parts[1].Trim();
+                if (!int.TryParse(lastPart, out materieId))
+                {
+                    return null;
+                }
             }
             if (!int.TryParse(values[1].ToString(), out valoare))
             { 
@@ -28,9 +35,14 @@ namespace PlatformaEducationala.Converters
             {
                 return null;
             }
-            if (!int.TryParse(values[5].ToString(), out elevId))
+            parts = elev.Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length > 1)
             {
-                return null;
+                string lastPart = parts[1].Trim();
+                if (!int.TryParse(lastPart, out elevId))
+                {
+                    return null;
+                }
             }
             return new Nota()
             {

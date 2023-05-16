@@ -1,10 +1,13 @@
 ﻿using PlatformaEducationala.Models.EntityLayer;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PlatformaEducationala.Converters
 {
@@ -12,15 +15,27 @@ namespace PlatformaEducationala.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            int materieId;
-            int elevId;
-            if (!int.TryParse(values[0].ToString(), out materieId))
+            string materie = values[0].ToString();
+            string elev = values[1].ToString();
+            int materieId = -1;
+            int elevId = -1;
+            string[] parts = materie.Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length > 1)
             {
-                return null;
+                string lastPart = parts[1].Trim();
+                if (!int.TryParse(lastPart, out materieId))
+                {
+                    return null;
+                }
             }
-            if (!int.TryParse(values[1].ToString(), out elevId))
+            parts = elev.Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length > 1)
             {
-                return null;
+                string lastPart = parts[1].Trim();
+                if (!int.TryParse(lastPart, out elevId))
+                {
+                    return null;
+                }
             }
             DateTime date;
             if (DateTime.TryParse(values[2].ToString(), out date))

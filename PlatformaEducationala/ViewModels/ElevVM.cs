@@ -1,4 +1,5 @@
 ﻿using PlatformaEducationala.Models.BusinessLogicLayer;
+using PlatformaEducationala.Models.DataAccessLayer;
 using PlatformaEducationala.Models.EntityLayer;
 using PlatformaEducationala.ViewModels.Commands;
 using System;
@@ -31,6 +32,11 @@ namespace PlatformaEducationala.ViewModels
                 }
             }
             return listaIdClase;
+        }
+
+        public ObservableCollection<Elev> GetListaEleviProfesori(int id)
+        {
+            return elevBLL.ObtineTotiEleviiDupaMaterieDupaProfesor(id);
         }
 
         #region Data Members

@@ -40,8 +40,22 @@
         <Label Width="150" FontSize="15">Nume + Id Materie:</Label>
         <!--<TextBox Name="txtIdMaterie" Width="200" Text="{Binding ElementName=gridNote,
                 Path=SelectedItem.IdMaterie, UpdateSourceTrigger=PropertyChanged}"/>-->
-        <ComboBox Name="txtIdMaterie" Width="200" ItemsSource="{Binding ListaIdMaterii}"
-                  SelectedValue="{Binding ElementName=gridNote, Path=SelectedItem.IdMaterie}"/>
+            <ComboBox Name="txtIdMaterie" Width="200" ItemsSource="{Binding ListaIdMaterii}"
+                  SelectedValue="{Binding ElementName=gridNote, Path=SelectedItem.IdMaterie}"
+                  SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
     </WrapPanel>
     <WrapPanel Margin="0,15,0,0">
         <Label Width="150" FontSize="15">Valoare:</Label>
@@ -68,7 +82,21 @@
             <!--<TextBox Name="txtIdElev" Width="200" Text="{Binding ElementName=gridNote,
                 Path=SelectedItem.IdElev, UpdateSourceTrigger=PropertyChanged}"/>-->
             <ComboBox Name="txtIdElev" Width="200" ItemsSource="{Binding ListaIdElevi}"
-                  SelectedValue="{Binding ElementName=gridNote, Path=SelectedItem.IdElev}"/>
+                  SelectedValue="{Binding ElementName=gridNote, Path=SelectedItem.IdElev}"
+                      SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
     </WrapPanel>
         <DataGrid Name="gridNote" Margin="0,15,0,0" AutoGenerateColumns="False"
                   Height="250" ItemsSource="{Binding ListaNote}" IsReadOnly="True"

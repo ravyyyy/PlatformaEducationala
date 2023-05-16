@@ -39,14 +39,42 @@
             <!--<TextBox Name="txtIdSpecializare" Width="200" Text="{Binding ElementName=gridClase,
                 Path=SelectedItem.IdSpecializare, UpdateSourceTrigger=PropertyChanged}"/>-->
             <ComboBox Name="txtIdSpecializare" Width="200" ItemsSource="{Binding ListaIdSpecializari}"
-          SelectedValue="{Binding ElementName=gridClase, Path=SelectedItem.IdSpecializare}"/>
+          SelectedValue="{Binding ElementName=gridClase, Path=SelectedItem.IdSpecializare}"
+                      SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Nume + Id Diriginte:</Label>
             <!--<TextBox Name="txtIdDiriginte" Width="200" Text="{Binding ElementName=gridClase,
                 Path=SelectedItem.IdDiriginte, UpdateSourceTrigger=PropertyChanged}"/>-->
             <ComboBox Name="txtIdDiriginte" Width="200" ItemsSource="{Binding ListaIdProfesori}"
-          SelectedValue="{Binding ElementName=gridClase, Path=SelectedItem.IdDiriginte}"/>
+          SelectedValue="{Binding ElementName=gridClase, Path=SelectedItem.IdDiriginte}"
+                      SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">An Studiu:</Label>

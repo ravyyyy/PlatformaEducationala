@@ -45,13 +45,25 @@
                     CommandParameter="{Binding ElementName=noteDG, Path=SelectedItem}"/>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
-        </WrapPanel>
-        <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Nume + Id Materie:</Label>
             <!--<TextBox Name="txtIdMaterie" Width="200" Text="{Binding ElementName=noteDG,
                 Path=SelectedItem.IdMaterie, UpdateSourceTrigger=PropertyChanged}"/>-->
             <ComboBox Name="txtIdMaterie" Width="200"
-          SelectedValue="{Binding ElementName=noteDG, Path=SelectedItem.IdMaterie}"/>
+          SelectedValue="{Binding ElementName=noteDG, Path=SelectedItem.IdMaterie}"
+                      SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Valoare:</Label>
@@ -78,7 +90,21 @@
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Nume + Id Elev:</Label>
             <ComboBox Name="txtIdElev" Width="200"
-          SelectedValue="{Binding ElementName=noteDG, Path=SelectedItem.IdElev}"/>
+          SelectedValue="{Binding ElementName=noteDG, Path=SelectedItem.IdElev}"
+                      SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </WrapPanel>
     </StackPanel>
 </Window>

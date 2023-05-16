@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
 
 namespace PlatformaEducationala.Converters
@@ -14,10 +15,16 @@ namespace PlatformaEducationala.Converters
         {
             if (values[0] != null && values[1] != null && values[2] != null && values[3] != null && values[4] != null && values[5] != null && values[6] != null)
             {
-                int idClasa;
-                if (!int.TryParse(values[6].ToString(), out idClasa))
+                string clasa = values[6].ToString();
+                int idClasa = -1;
+                string[] parts = clasa.Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+                if (parts.Length > 1)
                 {
-                    return null;
+                    string lastPart = parts[2].Trim();
+                    if (!int.TryParse(lastPart, out idClasa))
+                    {
+                        return null;
+                    }
                 }
                 DateTime date;
                 if (DateTime.TryParse(values[2].ToString(), out date))

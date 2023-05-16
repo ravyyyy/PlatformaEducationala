@@ -45,7 +45,7 @@
                 <MenuItem Header="Absente" Click="profesoriAbsenteMenuItem_Click"/>
                 <MenuItem Header="Note" Click="profesoriNoteMenuItem_Click"/>
                 <MenuItem Header="Material Didactic" Click="profesoriMaterialeMenuItem_Click"/>
-                <MenuItem Header="Medii"/>
+                <MenuItem Header="Medii" Click="profesoriMediiMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Diriginte">
                 <MenuItem.Icon>

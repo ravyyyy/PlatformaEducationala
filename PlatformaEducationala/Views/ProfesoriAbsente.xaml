@@ -47,14 +47,42 @@
             <!--<TextBox Name="txtIdMaterie" Width="200" Text="{Binding ElementName=absenteDG,
                 Path=SelectedItem.IdMaterie, UpdateSourceTrigger=PropertyChanged}"/>-->
             <ComboBox Name="txtIdMaterie" Width="200"
-          SelectedValue="{Binding ElementName=absenteDG, Path=SelectedItem.Nume}"/>
+          SelectedValue="{Binding ElementName=absenteDG, Path=SelectedItem.Nume}"
+                      SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Nume + Id Elev:</Label>
             <!--<TextBox Name="txtIdElev" Width="200" Text="{Binding ElementName=absenteDG,
                 Path=SelectedItem.IdElev, UpdateSourceTrigger=PropertyChanged}"/>-->
             <ComboBox Name="txtIdElev" Width="200" ItemsSource="{Binding ListaIdElev}"
-          SelectedValue="{Binding ElementName=absenteDG, Path=SelectedItem.IdElev}"/>
+          SelectedValue="{Binding ElementName=absenteDG, Path=SelectedItem.IdElev}"
+                      SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Data Absenta:</Label>

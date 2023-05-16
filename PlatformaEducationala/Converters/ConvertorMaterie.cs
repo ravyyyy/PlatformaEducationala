@@ -12,11 +12,17 @@ namespace PlatformaEducationala.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            int profesorId;
+            string profesor = (string)values[1];
+            int profesorId = -1;
             int anStudiu;
-            if (!int.TryParse(values[1].ToString(), out profesorId))
+            string[] parts = profesor.Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length > 1)
             {
-                return null;
+                string lastPart = parts[1].Trim();
+                if (!int.TryParse(lastPart, out profesorId))
+                {
+                    return null;
+                }
             }
             if (!int.TryParse(values[3].ToString(), out anStudiu))
             {

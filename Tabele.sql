@@ -769,3 +769,15 @@ BEGIN
 	WHERE an_studiu = (SELECT an_studiu FROM Clasa
 		WHERE id_clasa = (SELECT id_clasa FROM Elev WHERE id_elev = @elev_id))
 END
+
+GO
+CREATE PROCEDURE ObtineTotiEleviiDupaMaterieDupaProfesor
+	@profesor_id INT
+AS
+BEGIN
+	SELECT E.id_elev, E.nume, E.prenume, E.data_nastere, E.adresa, E.numar_telefon, E.email, E.id_clasa
+	FROM Elev E
+	INNER JOIN Clasa C ON C.id_clasa = E.id_clasa
+	INNER JOIN Materie M ON M.an_studiu = C.an_studiu
+	WHERE M.id_profesor = @profesor_id
+END

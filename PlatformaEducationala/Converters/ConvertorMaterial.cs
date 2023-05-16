@@ -12,10 +12,16 @@ namespace PlatformaEducationala.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            int materieId;
-            if (!int.TryParse(values[0].ToString(), out materieId))
+            string materie = (string)values[0];
+            int materieId = -1;
+            string[] parts = materie.Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length > 1)
             {
-                return null;
+                string lastPart = parts[1].Trim();
+                if (!int.TryParse(lastPart, out materieId))
+                {
+                    return null;
+                }
             }
             return new Material()
             {

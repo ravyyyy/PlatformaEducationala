@@ -105,8 +105,8 @@ namespace PlatformaEducationala.Views
                 KeyValuePair<string, int>? pair = profesoriCB.SelectedItem as KeyValuePair<string, int>?;
                 if (pair is KeyValuePair<string, int> kv)
                 {
-                    ProfesoriNote profesoriAbsente = new ProfesoriNote(kv.Value);
-                    profesoriAbsente.Show();
+                    ProfesoriNote profesoriNote = new ProfesoriNote(kv.Value);
+                    profesoriNote.Show();
                 }
             }
             else
@@ -122,8 +122,25 @@ namespace PlatformaEducationala.Views
                 KeyValuePair<string, int>? pair = profesoriCB.SelectedItem as KeyValuePair<string, int>?;
                 if (pair is KeyValuePair<string, int> kv)
                 {
-                    ProfesoriMateriale profesoriAbsente = new ProfesoriMateriale(kv.Value);
-                    profesoriAbsente.Show();
+                    ProfesoriMateriale profesoriMateriale = new ProfesoriMateriale(kv.Value);
+                    profesoriMateriale.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK);
+            }
+        }
+
+        private void profesoriMediiMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (profesoriCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = profesoriCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    ProfesoriMedii profesoriMedii = new ProfesoriMedii(kv.Value);
+                    profesoriMedii.Show();
                 }
             }
             else

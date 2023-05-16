@@ -14,15 +14,29 @@
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Nume + Id Elev:</Label>
             <ComboBox Name="txtElev" Width="200" ItemsSource="{Binding ListaIdElevi}"
-                      SelectionChanged="ComboBox_SelectionChanged"></ComboBox>
+                      SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">An de Studiu:</Label>
             <TextBox Name="txtAnStudiu" Width="200"></TextBox>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
-            <Label Width="150" FontSize="15">Nume + Id Specializare:</Label>
-            <ComboBox Name="txtSpecializare" Width="200"></ComboBox>
+            <Label Width="150" FontSize="15">Nume Specializare:</Label>
+            <ComboBox Name="txtSpecializare" Width="200">
+            </ComboBox>
         </WrapPanel>
         <Button Content="Actualizare" Margin="15" Width="100" Click="Actualizare_Click"/>
     </StackPanel>
