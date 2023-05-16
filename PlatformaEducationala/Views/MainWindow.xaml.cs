@@ -2,6 +2,7 @@
 using PlatformaEducationala.Models.EntityLayer;
 using PlatformaEducationala.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
@@ -84,8 +85,12 @@ namespace PlatformaEducationala.Views
         {
             if (profesoriCB.SelectedItem != null)
             {
-                ProfesoriAbsente profesoriAbsente = new ProfesoriAbsente((int)profesoriCB.SelectedItem);
-                profesoriAbsente.Show();
+                KeyValuePair<string, int>? pair = profesoriCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    ProfesoriAbsente profesoriAbsente = new ProfesoriAbsente(kv.Value);
+                    profesoriAbsente.Show();
+                }
             }
             else
             {
@@ -97,8 +102,12 @@ namespace PlatformaEducationala.Views
         {
             if (profesoriCB.SelectedItem != null)
             {
-                ProfesoriNote profesoriNote = new ProfesoriNote((int)profesoriCB.SelectedItem);
-                profesoriNote.Show();
+                KeyValuePair<string, int>? pair = profesoriCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    ProfesoriNote profesoriAbsente = new ProfesoriNote(kv.Value);
+                    profesoriAbsente.Show();
+                }
             }
             else
             {
@@ -110,8 +119,12 @@ namespace PlatformaEducationala.Views
         {
             if (profesoriCB.SelectedItem != null)
             {
-                ProfesoriMateriale profesoriMateriale = new ProfesoriMateriale((int)profesoriCB.SelectedItem);
-                profesoriMateriale.Show();
+                KeyValuePair<string, int>? pair = profesoriCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    ProfesoriMateriale profesoriAbsente = new ProfesoriMateriale(kv.Value);
+                    profesoriAbsente.Show();
+                }
             }
             else
             {
