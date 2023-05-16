@@ -18,30 +18,32 @@ namespace PlatformaEducationala.ViewModels
         public ElevBLL elevBLL = new ElevBLL();
         public ProfesorBLL profesorBLL = new ProfesorBLL();
 
-        public ObservableCollection<int> ListaIdMaterii { get; set; }
-        public ObservableCollection<int> ListaIdElevi { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> ListaIdMaterii { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> ListaIdElevi { get; set; }
 
-        public ObservableCollection<int> GetListaIdMaterii()
+        public ObservableCollection<KeyValuePair<string, int>> GetListaIdMaterii()
         {
-            ObservableCollection<int> listaIdMaterii = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> listaIdMaterii = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Materie materie in materieBLL.ObtineToateMateriile())
             {
-                if (!listaIdMaterii.Contains((int)materie.IdMaterie))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(materie.Nume, (int)materie.IdMaterie);
+                if (!listaIdMaterii.Contains(pair))
                 {
-                    listaIdMaterii.Add((int)materie.IdMaterie);
+                    listaIdMaterii.Add(pair);
                 }
             }
             return listaIdMaterii;
         }
 
-        public ObservableCollection<int> GetListaIdElevi()
+        public ObservableCollection<KeyValuePair<string, int>> GetListaIdElevi()
         {
-            ObservableCollection<int> listaIdElevi = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> listaIdElevi = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Elev elev in elevBLL.ObtineTotiElevii())
             {
-                if (!listaIdElevi.Contains((int)elev.IdElev))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(elev.Nume, (int)elev.IdElev);
+                if (!listaIdElevi.Contains(pair))
                 {
-                    listaIdElevi.Add((int)elev.IdElev);
+                    listaIdElevi.Add(pair);
                 }
             }
             return listaIdElevi;

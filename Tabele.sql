@@ -750,3 +750,22 @@ BEGIN
 	INNER JOIN Materie Ma ON Ma.id_materie = M.id_materie
 	WHERE Ma.id_profesor = @profesor_id
 END
+
+GO
+CREATE PROCEDURE ActualizareSpecializareSiAnStudiuDupaElev
+	@elev_id INT,
+	@studiu_an INT,
+	@denumire_specializare VARCHAR(50)
+AS
+BEGIN
+	UPDATE Clasa SET
+		an_studiu = @studiu_an,
+		id_specializare = (SELECT id_specializare FROM Specializare
+			WHERE denumire = @denumire_specializare)
+	WHERE id_clasa = (SELECT id_clasa FROM Elev WHERE id_elev = @elev_id)
+
+	UPDATE Materie SET
+		an_studiu = @studiu_an
+	WHERE an_studiu = (SELECT an_studiu FROM Clasa
+		WHERE id_clasa = (SELECT id_clasa FROM Elev WHERE id_elev = @elev_id))
+END

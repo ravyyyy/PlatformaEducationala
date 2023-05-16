@@ -2,6 +2,8 @@
 using PlatformaEducationala.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,31 +31,54 @@ namespace PlatformaEducationala.Views
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ElevAnStudiuSpecializareVM elevAnStudiuSpecializareVM = this.DataContext as ElevAnStudiuSpecializareVM;
-            Elev elevSelectat = elevAnStudiuSpecializareVM.elevBLL.ObtineElevDupaId((int)txtElev.SelectedItem);
-            elevAnStudiuSpecializareVM.ObtineAnStudiuDupaClasa((int)elevSelectat.IdClasa);
-            txtAnStudiu.Text = elevAnStudiuSpecializareVM.anStudiu.ToString();
-            txtSpecializare.ItemsSource =  elevAnStudiuSpecializareVM.ObtineToateDenumirileSpecializarilor(elevAnStudiuSpecializareVM.specializareBLL.ObtineToateSpecializarile());
-            string itemSelectat = "";
-            foreach (Clasa clasa in elevAnStudiuSpecializareVM.clasaBLL.ObtineToateClasele())
+            KeyValuePair<string, int>? pair = txtElev.SelectedItem as KeyValuePair<string, int>?;
+            if (pair is KeyValuePair<string, int> keyValue)
             {
-                if (clasa.IdClasa == elevSelectat.IdClasa)
+                int id = keyValue.Value;
+                Elev elevSelectat = elevAnStudiuSpecializareVM.elevBLL.ObtineElevDupaId(id);
+                elevAnStudiuSpecializareVM.ObtineAnStudiuDupaClasa((int)elevSelectat.IdClasa);
+                txtAnStudiu.Text = elevAnStudiuSpecializareVM.anStudiu.ToString();
+                txtSpecializare.ItemsSource = elevAnStudiuSpecializareVM.ObtineToateDenumirileSpecializarilor(elevAnStudiuSpecializareVM.specializareBLL.ObtineToateSpecializarile());
+                string itemSelectat = "";
+                foreach (Clasa clasa in elevAnStudiuSpecializareVM.clasaBLL.ObtineToateClasele())
                 {
-                    foreach (Specializare specializare in elevAnStudiuSpecializareVM.specializareBLL.ObtineToateSpecializarile())
+                    if (clasa.IdClasa == elevSelectat.IdClasa)
                     {
-                        if (specializare.IdSpecializare == clasa.IdSpecializare)
+                        foreach (Specializare specializare in elevAnStudiuSpecializareVM.specializareBLL.ObtineToateSpecializarile())
                         {
-                            itemSelectat = specializare.Denumire;
-                            break;
+                            if (specializare.IdSpecializare == clasa.IdSpecializare)
+                            {
+                                itemSelectat = specializare.Denumire;
+                                break;
+                            }
                         }
                     }
                 }
+                txtSpecializare.SelectedItem = itemSelectat;
             }
-            txtSpecializare.SelectedItem = itemSelectat;
         }
 
         private void Actualizare_Click(object sender, RoutedEventArgs e)
         {
-
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["myConStr"].ConnectionString);
+            using (con)
+            {
+                SqlCommand command = new SqlCommand("ActualizareSpecializareSiAnStudiuDupaElev", con);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                KeyValuePair<string, int>? pair = txtElev.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    command.Parameters.AddWithValue("@elev_id", kv.Value);
+                    int anStudiu;
+                    if (int.TryParse(txtAnStudiu.Text, out anStudiu))
+                    {
+                        command.Parameters.AddWithValue("@studiu_an", anStudiu);
+                        command.Parameters.AddWithValue("@denumire_specializare", txtSpecializare.SelectedItem.ToString());
+                        con.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
     }
 }

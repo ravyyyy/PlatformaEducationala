@@ -1,6 +1,7 @@
 ﻿using PlatformaEducationala.Models.BusinessLogicLayer;
 using PlatformaEducationala.Models.EntityLayer;
 using PlatformaEducationala.ViewModels.Commands;
+using PlatformaEducationala.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,30 +18,32 @@ namespace PlatformaEducationala.ViewModels
         SpecializareBLL specializareBLL = new SpecializareBLL();
         ProfesorBLL profesorBLL = new ProfesorBLL();
 
-        public ObservableCollection<int> ListaIdSpecializari { get; set; }
-        public ObservableCollection<int> ListaIdProfesori { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> ListaIdSpecializari { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> ListaIdProfesori { get; set; }
 
-        private ObservableCollection<int> GetListaIdSpecializari()
+        private ObservableCollection<KeyValuePair<string, int>> GetListaIdSpecializari()
         {
-            ObservableCollection<int> listaIdSpecializari = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> listaIdSpecializari = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Specializare specializare in specializareBLL.ObtineToateSpecializarile())
             {
-                if (!listaIdSpecializari.Contains((int)specializare.IdSpecializare))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(specializare.Denumire, (int)specializare.IdSpecializare);
+                if (!listaIdSpecializari.Contains(pair))
                 {
-                    listaIdSpecializari.Add((int)specializare.IdSpecializare);
+                    listaIdSpecializari.Add(pair);
                 }
             }
             return listaIdSpecializari;
         }
 
-        private ObservableCollection<int> GetListaIdProfesori()
+        private ObservableCollection<KeyValuePair<string, int>> GetListaIdProfesori()
         {
-            ObservableCollection<int> listaIdSpecializari = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> listaIdSpecializari = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Profesor profesor in profesorBLL.ObtineTotiProfesorii())
             {
-                if (!listaIdSpecializari.Contains((int)profesor.IdProfesor))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(profesor.Nume, (int)profesor.IdProfesor);
+                if (!listaIdSpecializari.Contains(pair))
                 {
-                    listaIdSpecializari.Add((int)profesor.IdProfesor);
+                    listaIdSpecializari.Add(pair);
                 }
             }
             return listaIdSpecializari;

@@ -15,20 +15,21 @@ namespace PlatformaEducationala.ViewModels
         public ClasaBLL clasaBLL = new ClasaBLL();
         public SpecializareBLL specializareBLL = new SpecializareBLL();
 
-        public ObservableCollection<int> ListaIdElevi { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> ListaIdElevi { get; set; }
         public ObservableCollection<string> ListaSpecializari { get; set; }
 
         public int anStudiu { get; set; }
         //public string specializare { get; set; }
 
-        private ObservableCollection<int> GetListaIdElevi()
+        private ObservableCollection<KeyValuePair<string, int>> GetListaIdElevi()
         {
-            ObservableCollection<int> listaIdElev = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> listaIdElev = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Elev elev in elevBLL.ObtineTotiElevii())
             {
-                if (!listaIdElev.Contains((int)elev.IdElev))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(elev.Nume, (int)elev.IdElev);
+                if (!listaIdElev.Contains(pair))
                 {
-                    listaIdElev.Add((int)elev.IdElev);
+                    listaIdElev.Add(pair);
                 }
             }
             return listaIdElev;

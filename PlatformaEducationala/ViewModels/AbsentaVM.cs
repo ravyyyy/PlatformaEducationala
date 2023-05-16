@@ -19,31 +19,33 @@ namespace PlatformaEducationala.ViewModels
         public ProfesorBLL profesorBLL = new ProfesorBLL();
         ElevBLL elevBLL = new ElevBLL();
 
-        public ObservableCollection<int> ListaIdMaterie { get; set; }
-        public ObservableCollection<int> ListaIdElev { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> ListaIdMaterie { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> ListaIdElev { get; set; }
         public ObservableCollection<Absenta> ListaAbsenteProfesori { get; set; }
 
-        private ObservableCollection<int> GetListaIdMaterii()
+        private ObservableCollection<KeyValuePair<string, int>> GetListaIdMaterii()
         {
-            ObservableCollection<int> listaIdClase = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> listaIdClase = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Materie materie in materieBLL.ObtineToateMateriile())
             {
-                if (!listaIdClase.Contains((int)materie.IdMaterie))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(materie.Nume, (int)materie.IdMaterie);
+                if (!listaIdClase.Contains(pair))
                 {
-                    listaIdClase.Add((int)materie.IdMaterie);
+                    listaIdClase.Add(pair);
                 }
             }
             return listaIdClase;
         }
 
-        private ObservableCollection<int> GetListaIdElevi()
+        private ObservableCollection<KeyValuePair<string, int>> GetListaIdElevi()
         {
-            ObservableCollection<int> listaIdClase = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> listaIdClase = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Elev elev in elevBLL.ObtineTotiElevii())
             {
-                if (!listaIdClase.Contains((int)elev.IdElev))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(elev.Nume, (int)elev.IdElev);
+                if (!listaIdClase.Contains(pair))
                 {
-                    listaIdClase.Add((int)elev.IdElev);
+                    listaIdClase.Add(pair);
                 }
             }
             return listaIdClase;

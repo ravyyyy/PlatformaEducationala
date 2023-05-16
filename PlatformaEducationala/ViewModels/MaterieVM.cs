@@ -17,16 +17,17 @@ namespace PlatformaEducationala.ViewModels
         MaterieBLL materieBLL = new MaterieBLL();
         ProfesorBLL profesorBLL = new ProfesorBLL();
 
-        public ObservableCollection<int> ListaIdProfesori { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> ListaIdProfesori { get; set; }
 
-        public ObservableCollection<int> GetListaIdProfesori()
+        public ObservableCollection<KeyValuePair<string, int>> GetListaIdProfesori()
         {
-            ObservableCollection<int> listaIdProfesori = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> listaIdProfesori = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Profesor profesor in profesorBLL.ObtineTotiProfesorii())
             {
-                if (!listaIdProfesori.Contains((int)profesor.IdProfesor))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(profesor.Nume, (int)profesor.IdProfesor);
+                if (!listaIdProfesori.Contains(pair))
                 {
-                    listaIdProfesori.Add((int)profesor.IdProfesor);
+                    listaIdProfesori.Add(pair);
                 }
             }
             return listaIdProfesori;

@@ -16,16 +16,18 @@ namespace PlatformaEducationala.ViewModels
         ElevBLL elevBLL = new ElevBLL();
         ClasaBLL clasaBLL = new ClasaBLL();
 
-        public ObservableCollection<int> ListaIdClase {  get; set; }
+        public ObservableCollection<KeyValuePair<KeyValuePair<int, string>, int>> ListaIdClase {  get; set; }
 
-        private ObservableCollection<int> GetListaIdClase()
+        private ObservableCollection<KeyValuePair<KeyValuePair<int, string>, int>> GetListaIdClase()
         {
-            ObservableCollection<int> listaIdClase = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<KeyValuePair<int, string>, int>> listaIdClase = new ObservableCollection<KeyValuePair<KeyValuePair<int, string>, int>>();
             foreach (Clasa clasa in clasaBLL.ObtineToateClasele())
             {
-                if (!listaIdClase.Contains((int)clasa.IdClasa))
+                KeyValuePair<int, string> secondaryPair = new KeyValuePair<int, string>(clasa.AnStudiu, clasa.Grupa);
+                KeyValuePair<KeyValuePair<int, string>, int> pair = new KeyValuePair<KeyValuePair<int, string>, int>(secondaryPair, (int)clasa.IdClasa);
+                if (!listaIdClase.Contains(pair))
                 {
-                    listaIdClase.Add((int)clasa.IdClasa);
+                    listaIdClase.Add(pair);
                 }
             }
             return listaIdClase;

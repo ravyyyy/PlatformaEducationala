@@ -15,44 +15,47 @@ namespace PlatformaEducationala.ViewModels
         public ProfesorBLL profesorBLL = new ProfesorBLL();
         public ElevBLL elevBLL = new ElevBLL();
 
-        public ObservableCollection<int> Profesori { get; set; }
-        public ObservableCollection<int> Diriginti { get; set; }
-        public ObservableCollection<int> Elevi { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> Profesori { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> Diriginti { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> Elevi { get; set; }
 
-        private ObservableCollection<int> GetProfesori()
+        private ObservableCollection<KeyValuePair<string, int>> GetProfesori()
         {
-            ObservableCollection<int> profesori = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> profesori = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Profesor profesor in profesorBLL.ObtineTotiProfesorii())
             {
-                if (!profesori.Contains((int)profesor.IdProfesor))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(profesor.Nume, (int)profesor.IdProfesor);
+                if (!profesori.Contains(pair))
                 {
-                    profesori.Add((int)profesor.IdProfesor);
+                    profesori.Add(pair);
                 }
             }
             return profesori;
         }
 
-        private ObservableCollection<int> GetDiriginti()
+        private ObservableCollection<KeyValuePair<string, int>> GetDiriginti()
         {
-            ObservableCollection<int> diriginti = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> diriginti = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Profesor diriginte in profesorBLL.ObtineTotiProfesorii())
             {
-                if (!diriginti.Contains((int)diriginte.IdProfesor) && diriginte.EsteDiriginte)
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(diriginte.Nume, (int)diriginte.IdProfesor);
+                if (!diriginti.Contains(pair))
                 {
-                    diriginti.Add((int)diriginte.IdProfesor);
+                    diriginti.Add(pair);
                 }
             }
             return diriginti;
         }
 
-        private ObservableCollection<int> GetElevi()
+        private ObservableCollection<KeyValuePair<string, int>> GetElevi()
         {
-            ObservableCollection<int> elevi = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> elevi = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Elev elev in elevBLL.ObtineTotiElevii())
             {
-                if (!elevi.Contains((int)elev.IdElev))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(elev.Nume, (int)elev.IdElev);
+                if (!elevi.Contains(pair))
                 {
-                    elevi.Add((int)elev.IdElev);
+                    elevi.Add(pair);
                 }
             }
             return elevi;

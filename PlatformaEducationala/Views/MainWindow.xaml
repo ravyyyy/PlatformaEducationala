@@ -74,15 +74,15 @@
                 <SolidColorBrush Color="#FFCE6820"/>
             </WrapPanel.Background>
             <WrapPanel Margin="0,15,0,0">
-                <Label Width="150">Id Profesor:</Label>
+                <Label Width="150">Nume + Id Profesor:</Label>
                 <ComboBox x:Name="profesoriCB" Width="200" ItemsSource="{Binding Profesori}"></ComboBox>
             </WrapPanel>
             <WrapPanel Margin="0,15,0,0">
-                <Label Width="150">Id Diriginte:</Label>
+                <Label Width="150">Nume + Id Diriginte:</Label>
                 <ComboBox x:Name="dirigintiCB" Width="200" ItemsSource="{Binding Diriginti}"></ComboBox>
             </WrapPanel>
             <WrapPanel Margin="0,15,0,0">
-                <Label Width="150">Id Elev:</Label>
+                <Label Width="150">Nume + Id Elev:</Label>
                 <ComboBox x:Name="eleviCB" Width="200" ItemsSource="{Binding Elevi}"></ComboBox>
             </WrapPanel>
         </WrapPanel>
