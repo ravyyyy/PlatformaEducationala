@@ -39,12 +39,13 @@ namespace PlatformaEducationala.Views
             absenteDG.ItemsSource = absente;
             Profesor profesor = absentaVM.profesorBLL.ObtineProfesorDupaId(profesorId);
             absentaVM.materieBLL.ObtineToateMateriileDupaProfesor(profesor);
-            ObservableCollection<int> materii = new ObservableCollection<int>();
+            ObservableCollection<KeyValuePair<string, int>> materii = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Materie materie in absentaVM.materieBLL.ListaMaterii)
             {
-                if (!materii.Contains((int)materie.IdMaterie))
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(materie.Nume, (int)materie.IdMaterie);
+                if (!materii.Contains(pair))
                 {
-                    materii.Add((int)materie.IdMaterie);
+                    materii.Add(pair);
                 }
             }
             txtIdMaterie.ItemsSource = materii;
