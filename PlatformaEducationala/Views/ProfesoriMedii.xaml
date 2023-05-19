@@ -28,7 +28,22 @@
             <Button Content="Calculare Medie" Margin="15" Width="100" Height="30"
                     Click="CalculareMedieButton" PreviewMouseDown="InsertButtonPreviewMouseDown">
             </Button>
-            <ComboBox Name="txtIdElev" Width="200" ItemsSource="{Binding ListaIdElevi}"
+            <ComboBox Name="txtIdElev" Width="100" ItemsSource="{Binding ListaIdElevi}"
+          SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox Name="txtIdMaterie" Width="100" ItemsSource="{Binding ListaIdElevi}"
           SelectedValuePath="Value">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>

@@ -40,50 +40,68 @@ namespace PlatformaEducationala.Views
             mediiDG.ItemsSource = medieVM.ListaMedie;
             Profesor profesor = medieVM.profesorBLL.ObtineProfesorDupaId(profesorId);
             medieVM.materieBLL.ObtineToateMateriileDupaProfesor(profesor);
+            txtIdMaterie.ItemsSource = medieVM.GetListaIdMateriiProfesor(profesor);
         }
 
         private void CalculareMedieButton(object sender, RoutedEventArgs e)
         {
             if (txtIdElev.SelectedItem != null)
             {
-                int idElev;
-                string[] parts = txtIdElev.SelectedItem.ToString().Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
-                if (parts.Length > 1)
+                if (txtIdMaterie.SelectedItem != null)
                 {
-                    string lastPart = parts[1].Trim();
-                    if (int.TryParse(lastPart, out idElev))
+                    string[] parts2 = txtIdMaterie.SelectedItem.ToString().Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] parts = txtIdElev.SelectedItem.ToString().Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts2.Length > 1)
                     {
-                        int sumaNote = 0;
-                        int numarNote = 0;
-                        int teza = 0;
-                        foreach (Nota nota in medieVM.notaBLL.ObtineToateNotele())
+                        string lastPart2 = parts2[1].Trim();
+                        if (int.TryParse(lastPart2, out int idMaterie))
                         {
-                            if (nota.IdElev == idElev && !nota.EsteTeza)
+                            if (parts.Length > 1)
                             {
-                                sumaNote += nota.Valoare;
-                                numarNote++;
+                                string lastPart = parts[1].Trim();
+                                if (int.TryParse(lastPart, out int idElev))
+                                {
+                                    int sumaNote = 0;
+                                    int numarNote = 0;
+                                    int teza = 0;
+                                    foreach (Nota nota in medieVM.notaBLL.ObtineToateNotele())
+                                    {
+                                        if (nota.IdElev == idElev && !nota.EsteTeza && nota.IdMaterie == idMaterie)
+                                        {
+                                            sumaNote += nota.Valoare;
+                                            numarNote++;
+                                        }
+                                        if (nota.IdElev == idElev && nota.EsteTeza && nota.IdMaterie == idMaterie)
+                                        {
+                                            teza = nota.Valoare;
+                                        }
+                                    }
+                                    if (numarNote > 2 && teza != 0)
+                                    {
+                                        double medieNote = (double)sumaNote / numarNote;
+                                        double medieElev = ((medieNote * 3.0) + teza) / 4.0;
+                                        int idUltimaMedie = (int)medieVM.ListaMedie[medieVM.ListaMedie.Count - 1].IdMedie;
+                                        Medie medie = new Medie
+                                        {
+                                            Nota = (decimal)medieElev,
+                                            IdElev = idElev,
+                                            IdMedie = idUltimaMedie + 1,
+                                            IdMaterie = idMaterie
+                                        };
+                                        medieVM.medieBLL.InserareMedie(medie);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Elevul nu are cel putin 3 note sau nu are nota la teza.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    }
+                                }
                             }
-                            if (nota.IdElev == idElev && nota.EsteTeza)
-                            {
-                                teza = nota.Valoare;
-                            }
-                        }
-                        if (numarNote > 2 && teza != 0)
-                        {
-                            double medieNote = (double)sumaNote / numarNote;
-                            double medieElev = ((medieNote * 3.0) + teza) / 4.0;
-                            Medie medie = new Medie();
-                            medie.Nota = (decimal)medieElev;
-                            medie.IdElev = idElev;
-                            int idUltimaMedie = (int)medieVM.ListaMedie[medieVM.ListaMedie.Count - 1].IdMedie;
-                            medie.IdMedie = idUltimaMedie + 1;
-                            medieVM.medieBLL.InserareMedie(medie);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Elevul nu are cel putin 3 note sau nu are nota la teza.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Te rog selecteaza o materie pentru a ii calcula media.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else

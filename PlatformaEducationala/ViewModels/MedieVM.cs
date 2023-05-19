@@ -66,6 +66,20 @@ namespace PlatformaEducationala.ViewModels
             return listaIdMaterii;
         }
 
+        public ObservableCollection<KeyValuePair<string, int>> GetListaIdMateriiProfesor(Profesor profesor)
+        {
+            ObservableCollection<KeyValuePair<string, int>> listaIdMaterii = new ObservableCollection<KeyValuePair<string, int>>();
+            foreach (Materie materie in materieBLL.ObtineToateMateriile())
+            {
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(materie.Nume, (int)materie.IdMaterie);
+                if (!listaIdMaterii.Contains(pair) && profesor.IdProfesor == materie.IdProfesor)
+                {
+                    listaIdMaterii.Add(pair);
+                }
+            }
+            return listaIdMaterii;
+        }
+
         #region Data Members
 
         public ObservableCollection<Medie> ListaMedie
