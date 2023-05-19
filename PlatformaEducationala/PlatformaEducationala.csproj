@@ -103,6 +103,18 @@
     <Compile Include="Views\Elevi.xaml.cs">
       <DependentUpon>Elevi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EleviAbsente.xaml.cs">
+      <DependentUpon>EleviAbsente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EleviMateriale.xaml.cs">
+      <DependentUpon>EleviMateriale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EleviMedii.xaml.cs">
+      <DependentUpon>EleviMedii.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EleviNote.xaml.cs">
+      <DependentUpon>EleviNote.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Materiale.xaml.cs">
       <DependentUpon>Materiale.xaml</DependentUpon>
     </Compile>
@@ -146,6 +158,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Elevi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EleviAbsente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EleviMateriale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EleviMedii.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EleviNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

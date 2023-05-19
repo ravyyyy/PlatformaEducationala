@@ -68,3 +68,11 @@ D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\
 D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\ProfesoriMateriale.baml
 D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\ProfesoriMedii.g.cs
 D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\ProfesoriMedii.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\EleviMateriale.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\EleviMateriale.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\EleviNote.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\EleviNote.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\EleviAbsente.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\EleviAbsente.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\EleviMedii.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\EleviMedii.baml

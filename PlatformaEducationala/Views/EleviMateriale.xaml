@@ -1,0 +1,27 @@
+﻿<Window x:Class="PlatformaEducationala.Views.EleviMateriale"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
+        xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
+        xmlns:local="clr-namespace:PlatformaEducationala.Views"
+        mc:Ignorable="d"
+        Title="EleviMateriale" Height="279" Width="334">
+    <Window.DataContext>
+        <ctx:MaterialVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:ConvertorMaterial x:Key="materialConvert"/>
+        </StackPanel.Resources>
+        <DataGrid Name="gridMateriale" Margin="0,15,0,0" AutoGenerateColumns="False"
+                  Height="250" IsReadOnly="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id Materie" Binding="{Binding IdMaterie}"/>
+                <DataGridTextColumn Header="Fisier" Binding="{Binding Fisier}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>

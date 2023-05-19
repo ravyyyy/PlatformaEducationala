@@ -11,22 +11,26 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ObtineTotiElevii", con);
+                SqlCommand cmd = new SqlCommand("ObtineTotiElevii", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 ObservableCollection<Elev> rezultat = new ObservableCollection<Elev>();
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Elev elev = new Elev();
-                    elev.IdElev = (int)(reader[0]);
-                    elev.Nume = reader[1].ToString();
-                    elev.Prenume = reader[2].ToString();
-                    elev.DataNastere = reader.GetDateTime(3);
-                    elev.Adresa = reader[4].ToString();
-                    elev.NumarTelefon = reader[5].ToString();
-                    elev.Email = reader[6].ToString();
-                    elev.IdClasa = (int)(reader[7]);
+                    Elev elev = new Elev
+                    {
+                        IdElev = (int)(reader[0]),
+                        Nume = reader[1].ToString(),
+                        Prenume = reader[2].ToString(),
+                        DataNastere = reader.GetDateTime(3),
+                        Adresa = reader[4].ToString(),
+                        NumarTelefon = reader[5].ToString(),
+                        Email = reader[6].ToString(),
+                        IdClasa = (int)(reader[7])
+                    };
                     rezultat.Add(elev);
                 }
                 reader.Close();
@@ -38,8 +42,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ObtineTotiEleviiDupaMaterieDupaProfesor", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineTotiEleviiDupaMaterieDupaProfesor", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 ObservableCollection<Elev> rezultat = new ObservableCollection<Elev>();
                 SqlParameter parametruProfesorId = new SqlParameter("@profesor_id", id);
                 cmd.Parameters.Add(parametruProfesorId);

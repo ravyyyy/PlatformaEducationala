@@ -87,7 +87,7 @@ namespace PlatformaEducationala.Views
             }
             else
             {
-                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK);
+                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -104,7 +104,7 @@ namespace PlatformaEducationala.Views
             }
             else
             {
-                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK);
+                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -121,7 +121,7 @@ namespace PlatformaEducationala.Views
             }
             else
             {
-                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK);
+                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -138,7 +138,75 @@ namespace PlatformaEducationala.Views
             }
             else
             {
-                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK);
+                MessageBox.Show("Trebuie selectat un profesor!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void eleviMaterialeMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (eleviCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = eleviCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair <string, int> kv)
+                {
+                    EleviMateriale eleviMateriale = new EleviMateriale(kv.Value);
+                    eleviMateriale.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un elev!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void eleviNoteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (eleviCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = eleviCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    EleviNote eleviNote = new EleviNote(kv.Value);
+                    eleviNote.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un elev!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void eleviAbsenteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (eleviCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = eleviCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    EleviAbsente eleviAbsente = new EleviAbsente(kv.Value);
+                    eleviAbsente.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un elev!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void eleviMediiMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (eleviCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = eleviCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    EleviMedii eleviMedii = new EleviMedii(kv.Value);
+                    eleviMedii.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un elev!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

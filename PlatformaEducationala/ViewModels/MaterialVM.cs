@@ -11,7 +11,9 @@ namespace PlatformaEducationala.ViewModels
     {
         MaterialBLL materialBLL = new MaterialBLL();
         public MaterieBLL materieBLL = new MaterieBLL();
+        public ElevBLL elevBLL = new ElevBLL();
         public ProfesorBLL profesorBLL = new ProfesorBLL();
+        public ClasaBLL clasaBLL = new ClasaBLL();
 
         public ObservableCollection<KeyValuePair<string, int>> ListaIdMaterii { get; set; }
 

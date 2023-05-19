@@ -12,7 +12,7 @@ namespace PlatformaEducationala.ViewModels
         AbsentaBLL absentaBLL = new AbsentaBLL();
         public MaterieBLL materieBLL = new MaterieBLL();
         public ProfesorBLL profesorBLL = new ProfesorBLL();
-        ElevBLL elevBLL = new ElevBLL();
+        public ElevBLL elevBLL = new ElevBLL();
 
         public ObservableCollection<KeyValuePair<string, int>> ListaIdMaterie { get; set; }
         public ObservableCollection<KeyValuePair<string, int>> ListaIdElev { get; set; }

@@ -11,7 +11,7 @@ namespace PlatformaEducationala.ViewModels
     {
         public MedieBLL medieBLL = new MedieBLL();
         public ProfesorBLL profesorBLL = new ProfesorBLL();
-        ElevBLL elevBLL = new ElevBLL();
+        public ElevBLL elevBLL = new ElevBLL();
         public MaterieBLL materieBLL = new MaterieBLL();
         public NotaBLL notaBLL = new NotaBLL();
 

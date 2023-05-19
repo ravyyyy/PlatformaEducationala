@@ -63,10 +63,10 @@
                 <MenuItem.Icon>
                     <Image Source="/Images/elev.jpg" Width="20" Height="20"/>
                 </MenuItem.Icon>
-                <MenuItem Header="Material Didactic"/>
-                <MenuItem Header="Note"/>
-                <MenuItem Header="Absente"/>
-                <MenuItem Header="Medii"/>
+                <MenuItem Header="Material Didactic" Click="eleviMaterialeMenuItem_Click"/>
+                <MenuItem Header="Note" Click="eleviNoteMenuItem_Click"/>
+                <MenuItem Header="Absente" Click="eleviAbsenteMenuItem_Click"/>
+                <MenuItem Header="Medii" Click="eleviMediiMenuItem_Click"/>
             </MenuItem>
         </Menu>
         <WrapPanel>
