@@ -1,12 +1,5 @@
-﻿using PlatformaEducationala.Models.BusinessLogicLayer;
-using PlatformaEducationala.Models.EntityLayer;
-using PlatformaEducationala.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Markup;
 
 namespace PlatformaEducationala.Views
 {

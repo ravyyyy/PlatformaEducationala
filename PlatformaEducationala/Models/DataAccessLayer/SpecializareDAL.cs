@@ -1,11 +1,6 @@
 ﻿using PlatformaEducationala.Models.EntityLayer;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlatformaEducationala.Models.DataAccessLayer
 {
@@ -15,9 +10,11 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ObtineToateSpecializarile", con);
+                SqlCommand cmd = new SqlCommand("ObtineToateSpecializarile", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 ObservableCollection<Specializare> rezultat = new ObservableCollection<Specializare>();
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -32,34 +29,19 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             }
         }
 
-        //public string ObtineSpecializareDupaSpecializare(int specializareId)
-        //{
-        //    using (SqlConnection con = DALHelper.Connection)
-        //    {
-        //        string rezultat = "";
-        //        SqlCommand cmd = new SqlCommand("ObtineSpecializareDupaSpecializare", con);
-        //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
-        //        SqlParameter parametruSpecializareId = new SqlParameter("@specializare_id", specializareId);
-        //        cmd.Parameters.Add(parametruSpecializareId);
-        //        con.Open();
-        //        SqlDataReader reader = cmd.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            rezultat = reader[0].ToString();
-        //        }
-        //        return rezultat;
-        //    }
-        //}
-
         public void InserareSpecializare(Specializare specializare)
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("InserareSpecializare", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("InserareSpecializare", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruDenumire = new SqlParameter("@denumire", specializare.Denumire);
-                SqlParameter parametruIdSpecializare = new SqlParameter("@specializare_id", System.Data.SqlDbType.Int);
-                parametruIdSpecializare.Direction = System.Data.ParameterDirection.Output;
+                SqlParameter parametruIdSpecializare = new SqlParameter("@specializare_id", System.Data.SqlDbType.Int)
+                {
+                    Direction = System.Data.ParameterDirection.Output
+                };
                 cmd.Parameters.Add(parametruDenumire);
                 cmd.Parameters.Add(parametruIdSpecializare);
                 con.Open();
@@ -72,8 +54,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("StergereSpecializare", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("StergereSpecializare", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruIdSpecializare = new SqlParameter("@specializare_id", specializare.IdSpecializare);
                 cmd.Parameters.Add(parametruIdSpecializare);
                 con.Open();
@@ -85,8 +69,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ActualizareSpecializare", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ActualizareSpecializare", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruIdSpecializare = new SqlParameter("@specializare_id", specializare.IdSpecializare);
                 SqlParameter parametruDenumire = new SqlParameter("@denumire", specializare.Denumire);
                 cmd.Parameters.Add(parametruIdSpecializare);

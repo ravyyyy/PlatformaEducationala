@@ -1,11 +1,7 @@
 ﻿using PlatformaEducationala.Models.EntityLayer;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlatformaEducationala.Models.DataAccessLayer
 {
@@ -22,12 +18,14 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Absenta absenta = new Absenta();
-                    absenta.IdAbsenta = reader.GetInt32(0);
-                    absenta.IdMaterie = reader.GetInt32(1);
-                    absenta.IdElev = reader.GetInt32(2);
-                    absenta.DataAbsenta = reader.GetDateTime(3);
-                    absenta.EsteMotivata = reader.GetBoolean(4);
+                    Absenta absenta = new Absenta
+                    {
+                        IdAbsenta = reader.GetInt32(0),
+                        IdMaterie = reader.GetInt32(1),
+                        IdElev = reader.GetInt32(2),
+                        DataAbsenta = reader.GetDateTime(3),
+                        EsteMotivata = reader.GetBoolean(4)
+                    };
                     rezultat.Add(absenta);
                 }
                 reader.Close();
@@ -39,8 +37,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("InserareAbsenta", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("InserareAbsenta", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruIdMaterie = new SqlParameter("@id_materie", absenta.IdMaterie);
                 SqlParameter parametruIdElev = new SqlParameter("@id_elev", absenta.IdElev);
                 SqlParameter parametruDataAbsenta = new SqlParameter("@data_absenta", absenta.DataAbsenta);
@@ -62,8 +62,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ActualizareAbsenta", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ActualizareAbsenta", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruAbsentaId = new SqlParameter("@absenta_id", absenta.IdAbsenta);
                 SqlParameter parametruIdMaterie = new SqlParameter("@id_materie", absenta.IdMaterie);
                 SqlParameter parametruIdElev = new SqlParameter("@id_elev", absenta.IdElev);
@@ -83,8 +85,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("StergereAbsenta", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("StergereAbsenta", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruAbsentaId = new SqlParameter("@absenta_id", absenta.IdAbsenta);
                 cmd.Parameters.Add(parametruAbsentaId);
                 con.Open();
@@ -97,8 +101,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 ObservableCollection<Absenta> rezultat = new ObservableCollection<Absenta>();
-                SqlCommand cmd = new SqlCommand("ObtineToateAbsenteleDupaElev", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineToateAbsenteleDupaElev", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruElevId = new SqlParameter("@elev_id", elev.IdElev);
                 cmd.Parameters.Add(parametruElevId);
                 con.Open();
@@ -123,8 +129,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 ObservableCollection<Absenta> rezultat = new ObservableCollection<Absenta>();
-                SqlCommand cmd = new SqlCommand("ObtineToateAbsenteleDupaMaterie", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineToateAbsenteleDupaMaterie", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruMaterieId = new SqlParameter("@materie_id", materie.IdMaterie);
                 cmd.Parameters.Add(parametruMaterieId);
                 con.Open();
@@ -149,8 +157,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 ObservableCollection<Absenta> rezultat = new ObservableCollection<Absenta>();
-                SqlCommand cmd = new SqlCommand("ObtineToateAbsenteleDupaMaterieDupaProfesor", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineToateAbsenteleDupaMaterieDupaProfesor", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruProfesorId = new SqlParameter("@profesor_id", profesorId);
                 cmd.Parameters.Add(parametruProfesorId);
                 con.Open();

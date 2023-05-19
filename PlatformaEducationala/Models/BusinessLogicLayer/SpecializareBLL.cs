@@ -1,12 +1,7 @@
 ﻿using PlatformaEducationala.Exceptions;
 using PlatformaEducationala.Models.DataAccessLayer;
 using PlatformaEducationala.Models.EntityLayer;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlatformaEducationala.Models.BusinessLogicLayer
 {
@@ -67,10 +62,5 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             specializareDAL.StergereSpecializare(specializare);
             ListaSpecializare.Remove(specializare);
         }
-
-        //public string ObtineSpecializareDupaSpecializare(int specializareId)
-        //{
-        //    return specializareDAL.ObtineSpecializareDupaSpecializare(specializareId);
-        //}
     }
 }

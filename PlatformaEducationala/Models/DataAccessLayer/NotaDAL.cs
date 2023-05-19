@@ -1,11 +1,7 @@
 ﻿using PlatformaEducationala.Models.EntityLayer;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlatformaEducationala.Models.DataAccessLayer
 {
@@ -15,21 +11,25 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ObtineToateNotele", con);
+                SqlCommand cmd = new SqlCommand("ObtineToateNotele", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 ObservableCollection<Nota> rezultat = new ObservableCollection<Nota>();
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Nota nota = new Nota();
-                    nota.IdNota = (int)reader[0];
-                    nota.IdMaterie = (int)reader[1];
-                    nota.Valoare = (int)reader[2];
-                    nota.EsteTeza = Convert.ToBoolean(reader[3]);
-                    nota.Semestru = (int)reader[4];
-                    nota.MedieIncheiata = Convert.ToBoolean(reader[5]);
-                    nota.IdElev = (int)reader[6];
+                    Nota nota = new Nota
+                    {
+                        IdNota = (int)reader[0],
+                        IdMaterie = (int)reader[1],
+                        Valoare = (int)reader[2],
+                        EsteTeza = Convert.ToBoolean(reader[3]),
+                        Semestru = (int)reader[4],
+                        MedieIncheiata = Convert.ToBoolean(reader[5]),
+                        IdElev = (int)reader[6]
+                    };
                     rezultat.Add(nota);
                 }
                 reader.Close();
@@ -42,8 +42,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 ObservableCollection<Nota> rezultat = new ObservableCollection<Nota>();
-                SqlCommand cmd = new SqlCommand("ObtineToateNoteleDupaMaterie", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineToateNoteleDupaMaterie", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruMaterieId = new SqlParameter("@materie_id", materie.IdMaterie);
                 cmd.Parameters.Add(parametruMaterieId);
                 con.Open();
@@ -69,8 +71,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("InserareNota", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("InserareNota", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruIdMaterie = new SqlParameter("@id_materie", nota.IdMaterie);
                 SqlParameter parametruValoare = new SqlParameter("@valoare", nota.Valoare);
                 SqlParameter parametruEsteTeza = new SqlParameter("@este_teza", Convert.ToBoolean(nota.EsteTeza));
@@ -96,8 +100,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("StergereNota", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("StergereNota", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruNotaId = new SqlParameter("@nota_id", nota.IdNota);
                 cmd.Parameters.Add(parametruNotaId);
                 con.Open();
@@ -109,8 +115,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ActualizareNota", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ActualizareNota", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruNotaId = new SqlParameter("@nota_id", nota.IdNota);
                 SqlParameter parametruIdMaterie = new SqlParameter("@id_materie", nota.IdMaterie);
                 SqlParameter parametruValoare = new SqlParameter("@valoare", nota.Valoare);
@@ -135,8 +143,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 ObservableCollection<Nota> rezultat = new ObservableCollection<Nota>();
-                SqlCommand cmd = new SqlCommand("ObtineToateNoteleDupaMaterieDupaProfesor", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineToateNoteleDupaMaterieDupaProfesor", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruProfesorId = new SqlParameter("@profesor_id", profesorId);
                 cmd.Parameters.Add(parametruProfesorId);
                 con.Open();

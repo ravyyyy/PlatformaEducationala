@@ -1,11 +1,6 @@
 ﻿using PlatformaEducationala.Models.EntityLayer;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlatformaEducationala.Models.DataAccessLayer
 {
@@ -23,12 +18,14 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Clasa clasa = new Clasa();
-                    clasa.IdClasa = (int)reader[0];
-                    clasa.IdSpecializare = (int)reader[1];
-                    clasa.IdDiriginte = (int)reader[2];
-                    clasa.AnStudiu = (int)reader[3];
-                    clasa.Grupa = reader[4].ToString();
+                    Clasa clasa = new Clasa
+                    {
+                        IdClasa = (int)reader[0],
+                        IdSpecializare = (int)reader[1],
+                        IdDiriginte = (int)reader[2],
+                        AnStudiu = (int)reader[3],
+                        Grupa = reader[4].ToString()
+                    };
                     rezultat.Add(clasa);
                 }
                 reader.Close();
@@ -45,8 +42,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 int rezultat = 0;
-                SqlCommand cmd = new SqlCommand("ObtineAnStudiuDupaClasa", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineAnStudiuDupaClasa", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruClasaId = new SqlParameter("@clasa_id", clasa);
                 cmd.Parameters.Add(parametruClasaId);
                 con.Open();
@@ -64,8 +63,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("InserareClasa", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("InserareClasa", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruIdSpecializare = new SqlParameter("@id_specializare", clasa.IdSpecializare);
                 SqlParameter parametruIdDiriginte = new SqlParameter("@id_diriginte", clasa.IdDiriginte);
                 SqlParameter parametruAnStudiu = new SqlParameter("@an_studiu", clasa.AnStudiu);
@@ -87,8 +88,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("StergereClasa", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("StergereClasa", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruClasaId = new SqlParameter("@clasa_id", clasa.IdClasa);
                 cmd.Parameters.Add(parametruClasaId);
                 con.Open();
@@ -100,8 +103,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ActualizareClasa", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ActualizareClasa", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruClasaId = new SqlParameter("@clasa_id", clasa.IdClasa);
                 SqlParameter parametruIdSpecializare = new SqlParameter("@id_specializare", clasa.IdSpecializare);
                 SqlParameter parametruIdDiriginte = new SqlParameter("@id_diriginte", clasa.IdDiriginte);
@@ -122,8 +127,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 ObservableCollection<Clasa> rezultat = new ObservableCollection<Clasa>();
-                SqlCommand cmd = new SqlCommand("ObtineToateClaseleDupaSpecializare", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineToateClaseleDupaSpecializare", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruIdSpecializare = new SqlParameter("@specializare_id", specializare.IdSpecializare);
                 cmd.Parameters.Add(parametruIdSpecializare);
                 con.Open();
@@ -148,8 +155,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 ObservableCollection<Clasa> rezultat = new ObservableCollection<Clasa>();
-                SqlCommand cmd = new SqlCommand("ObtineToateClaseleDupaProfesor", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineToateClaseleDupaProfesor", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruIdSpecializare = new SqlParameter("@profesor_id", profesor.IdProfesor);
                 cmd.Parameters.Add(parametruIdSpecializare);
                 con.Open();

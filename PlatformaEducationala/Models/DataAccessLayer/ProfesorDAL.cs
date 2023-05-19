@@ -1,11 +1,7 @@
 ﻿using PlatformaEducationala.Models.EntityLayer;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlatformaEducationala.Models.DataAccessLayer
 {
@@ -15,22 +11,26 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ObtineTotiProfesorii", con);
+                SqlCommand cmd = new SqlCommand("ObtineTotiProfesorii", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 ObservableCollection<Profesor> rezultat = new ObservableCollection<Profesor>();
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Profesor profesor = new Profesor();
-                    profesor.IdProfesor = (int)(reader[0]);
-                    profesor.Nume = reader[1].ToString();
-                    profesor.Prenume = reader[2].ToString();
-                    profesor.DataNastere = reader.GetDateTime(3);
-                    profesor.Adresa = reader[4].ToString();
-                    profesor.NumarTelefon = reader[5].ToString();
-                    profesor.Email = reader[6].ToString();
-                    profesor.EsteDiriginte = Convert.ToBoolean(reader[7].ToString());
+                    Profesor profesor = new Profesor
+                    {
+                        IdProfesor = (int)(reader[0]),
+                        Nume = reader[1].ToString(),
+                        Prenume = reader[2].ToString(),
+                        DataNastere = reader.GetDateTime(3),
+                        Adresa = reader[4].ToString(),
+                        NumarTelefon = reader[5].ToString(),
+                        Email = reader[6].ToString(),
+                        EsteDiriginte = Convert.ToBoolean(reader[7].ToString())
+                    };
                     rezultat.Add(profesor);
                 }
                 reader.Close();
@@ -43,8 +43,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 Profesor profesor = new Profesor();
-                SqlCommand cmd = new SqlCommand("ObtineProfesorDupaId", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineProfesorDupaId", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruProfesorId = new SqlParameter("@profesor_id", idProfesor);
                 cmd.Parameters.Add(parametruProfesorId);
                 con.Open();
@@ -68,8 +70,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("InserareProfesor", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("InserareProfesor", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruNume = new SqlParameter("@nume", profesor.Nume);
                 SqlParameter parametruPrenume = new SqlParameter("@prenume", profesor.Prenume);
                 SqlParameter parametruDataNastere = new SqlParameter("@data_nastere", Convert.ToDateTime(profesor.DataNastere));
@@ -97,8 +101,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("StergereProfesor", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("StergereProfesor", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruProfesorId = new SqlParameter("@profesor_id", profesor.IdProfesor);
                 cmd.Parameters.Add(parametruProfesorId);
                 con.Open();
@@ -110,8 +116,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ActualizareProfesor", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ActualizareProfesor", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruProfesorId = new SqlParameter("@profesor_id", profesor.IdProfesor);
                 SqlParameter parametruNume = new SqlParameter("@nume", profesor.Nume);
                 SqlParameter parametruPrenume = new SqlParameter("@prenume", profesor.Prenume);

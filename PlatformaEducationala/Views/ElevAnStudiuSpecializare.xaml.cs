@@ -1,20 +1,10 @@
 ﻿using PlatformaEducationala.Models.EntityLayer;
 using PlatformaEducationala.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PlatformaEducationala.Views
 {
@@ -63,8 +53,10 @@ namespace PlatformaEducationala.Views
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["myConStr"].ConnectionString);
             using (con)
             {
-                SqlCommand command = new SqlCommand("ActualizareSpecializareSiAnStudiuDupaElev", con);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand command = new SqlCommand("ActualizareSpecializareSiAnStudiuDupaElev", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 KeyValuePair<string, int>? pair = txtElev.SelectedItem as KeyValuePair<string, int>?;
                 if (pair is KeyValuePair<string, int> kv)
                 {

@@ -1,11 +1,6 @@
 ﻿using PlatformaEducationala.Models.EntityLayer;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlatformaEducationala.Models.DataAccessLayer
 {
@@ -15,17 +10,21 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ObtineToateMaterialele", con);
+                SqlCommand cmd = new SqlCommand("ObtineToateMaterialele", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 ObservableCollection<Material> rezultat = new ObservableCollection<Material>();
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Material material = new Material();
-                    material.IdMaterial = reader.GetInt32(0);
-                    material.IdMaterie = reader.GetInt32(1);
-                    material.Fisier = (byte[])reader[2];
+                    Material material = new Material
+                    {
+                        IdMaterial = reader.GetInt32(0),
+                        IdMaterie = reader.GetInt32(1),
+                        Fisier = (byte[])reader[2]
+                    };
                     rezultat.Add(material);
                 }
                 reader.Close();
@@ -37,8 +36,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("InserareMaterial", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("InserareMaterial", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruIdMaterie = new SqlParameter("@id_materie", material.IdMaterie);
                 SqlParameter parametruFisier = new SqlParameter("@fisier", material.Fisier);
                 SqlParameter parametruMaterialId = new SqlParameter("@material_id", System.Data.SqlDbType.Int);
@@ -56,8 +57,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("StergereMaterial", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("StergereMaterial", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruIdMaterial = new SqlParameter("@material_id", material.IdMaterial);
                 cmd.Parameters.Add(parametruIdMaterial);
                 con.Open();
@@ -69,8 +72,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
         {
             using (SqlConnection con = DALHelper.Connection)
             {
-                SqlCommand cmd = new SqlCommand("ActualizareMaterial", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ActualizareMaterial", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruMaterialId = new SqlParameter("@material_id", material.IdMaterial);
                 SqlParameter parametruIdMaterie = new SqlParameter("@id_materie", material.IdMaterie);
                 SqlParameter parametruFisier = new SqlParameter("@fisier", material.Fisier);
@@ -87,8 +92,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 ObservableCollection<Material> rezultat = new ObservableCollection<Material>();
-                SqlCommand cmd = new SqlCommand("ObtineToateMaterialeleDupaMaterie", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineToateMaterialeleDupaMaterie", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruMaterieId = new SqlParameter("@materie_id", materie.IdMaterie);
                 cmd.Parameters.Add(parametruMaterieId);
                 con.Open();
@@ -111,8 +118,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 ObservableCollection<Material> rezultat = new ObservableCollection<Material>();
-                SqlCommand cmd = new SqlCommand("ObtineToateMaterialeleDupaMaterieDupaProfesor", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("ObtineToateMaterialeleDupaMaterieDupaProfesor", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
                 SqlParameter parametruProfesorId = new SqlParameter("@profesor_id", profesorId);
                 cmd.Parameters.Add(parametruProfesorId);
                 con.Open();
