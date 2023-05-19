@@ -24,6 +24,7 @@ namespace PlatformaEducationala.Views
     {
         private int profesorId;
         private ObservableCollection<Absenta> absente = new ObservableCollection<Absenta>();
+        AbsentaVM absentaVM;
 
         public ProfesoriAbsente()
         {
@@ -34,7 +35,7 @@ namespace PlatformaEducationala.Views
         {
             InitializeComponent();
             this.profesorId = profesorId;
-            AbsentaVM absentaVM = this.DataContext as AbsentaVM;
+            absentaVM = DataContext as AbsentaVM;
             absente = absentaVM.GetListaAbsenteProfesori(profesorId);
             absenteDG.ItemsSource = absente;
             Profesor profesor = absentaVM.profesorBLL.ObtineProfesorDupaId(profesorId);
@@ -49,6 +50,24 @@ namespace PlatformaEducationala.Views
                 }
             }
             txtIdMaterie.ItemsSource = materii;
+        }
+
+        private void InsertButtonClick(object sender, RoutedEventArgs e)
+        {
+            absente = absentaVM.GetListaAbsenteProfesori(profesorId);
+            absenteDG.ItemsSource = absente;
+        }
+
+        private void InsertButtonPreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Button button)
+            {
+                if (button.Command != null && button.Command.CanExecute(button.CommandParameter))
+                {
+                    button.Command.Execute(button.CommandParameter);
+                }
+            }
+            InsertButtonClick(sender, e);
         }
     }
 }

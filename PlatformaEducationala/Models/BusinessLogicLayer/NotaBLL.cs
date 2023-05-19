@@ -92,7 +92,7 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
         {
             if (nota == null)
             {
-                throw new AgendaException("Trebuie selectat o nota.");
+                throw new AgendaException("Trebuie selectata o nota.");
             }
             notaDAL.StergereNota(nota);
             ListaNote.Remove(nota);

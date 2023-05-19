@@ -38,7 +38,7 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             }
             if (string.IsNullOrEmpty(medie.Nota.ToString()))
             {
-                throw new AgendaException("Nota medieo trebuie precizata.");
+                throw new AgendaException("Nota mediei trebuie precizata.");
             }
             medieDAL.InserareMedie(medie);
             ListaMedii.Add(medie);

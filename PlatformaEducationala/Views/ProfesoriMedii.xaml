@@ -7,31 +7,42 @@
         xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
         xmlns:local="clr-namespace:PlatformaEducationala.Views"
         mc:Ignorable="d"
-        Title="ProfesoriMedii" Height="341" Width="421">
+        Title="ProfesoriMedii" Height="358" Width="421">
     <Window.DataContext>
-        <ctx:ElevVM/>
+        <ctx:MedieVM/>
     </Window.DataContext>
     <StackPanel>
         <StackPanel.Resources>
-            <convert:ConvertorElev x:Key="elevConvert"/>
+            <convert:ConvertorMedie x:Key="medieConvert"/>
         </StackPanel.Resources>
-        <DataGrid x:Name="eleviDG" Margin="0,15,0,0" AutoGenerateColumns="False"
+        <DataGrid x:Name="mediiDG" Margin="0,15,0,0" AutoGenerateColumns="False"
                   Height="250" IsReadOnly="True"
                   ScrollViewer.VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nume" Binding="{Binding Nume}"/>
-                <DataGridTextColumn Header="Prenume" Binding="{Binding Prenume}"/>
-                <DataGridTextColumn Header="Data Nastere" Binding="{Binding DataNastere}"/>
-                <DataGridTextColumn Header="Adresa" Binding="{Binding Adresa}"/>
-                <DataGridTextColumn Header="Numar Telefon" Binding="{Binding NumarTelefon}"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Id Clasa" Binding="{Binding IdClasa}"/>
+                <DataGridTextColumn Header="Id Elev" Binding="{Binding IdElev}"/>
+                <DataGridTextColumn Header="Id Materie" Binding="{Binding IdMaterie}"/>
+                <DataGridTextColumn Header="Nota" Binding="{Binding Nota}"/>
             </DataGrid.Columns>
         </DataGrid>
         <WrapPanel>
             <Button Content="Calculare Medie" Margin="15" Width="100" Height="30"
-                    Command="{Binding ComandaInserare}">
+                    Click="CalculareMedieButton" PreviewMouseDown="InsertButtonPreviewMouseDown">
             </Button>
+            <ComboBox Name="txtIdElev" Width="200" ItemsSource="{Binding ListaIdElevi}"
+          SelectedValuePath="Value">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </WrapPanel>
     </StackPanel>
 </Window>

@@ -17,7 +17,7 @@
         </StackPanel.Resources>
         <WrapPanel>
             <Button Content="Inserare" Margin="15" Width="100" Height="30"
-                    Command="{Binding ComandaInserare}">
+                    Command="{Binding ComandaInserare}" PreviewMouseDown="InsertButtonPreviewMouseDown">
                 <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource materialConvert}">
                         <Binding ElementName="txtIdMaterie" Path="Text"/>
@@ -26,7 +26,7 @@
                 </Button.CommandParameter>
             </Button>
             <Button Content="Stergere" Margin="15" Width="100" Command="{Binding ComandaStergere}"
-                    CommandParameter="{Binding ElementName=gridMateriale, Path=SelectedItem}"/>
+                    CommandParameter="{Binding ElementName=gridMateriale, Path=SelectedItem}" PreviewMouseDown="InsertButtonPreviewMouseDown"/>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Nume + Id Materie:</Label>
@@ -49,7 +49,9 @@
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Fisier:</Label>
-            <Button Name="txtFisier" Content="Incarca Fisier" Click="IncarcaFisier_Click"/>
+            <TextBox Name="txtFisier" Width="200" Text="{Binding ElementName=gridMateriale,
+                Path=SelectedItem.Fisier, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Button Content="Incarca Fisier" Click="IncarcaFisier_Click"/>
         </WrapPanel>
         <DataGrid Name="gridMateriale" Margin="0,15,0,0" AutoGenerateColumns="False"
                   Height="250" IsReadOnly="True"

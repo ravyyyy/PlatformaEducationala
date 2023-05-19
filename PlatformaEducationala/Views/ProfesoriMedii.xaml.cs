@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,7 +24,8 @@ namespace PlatformaEducationala.Views
     public partial class ProfesoriMedii : Window
     {
         private int profesorId;
-        private ObservableCollection<Elev> elevi = new ObservableCollection<Elev>();
+        MedieVM medieVM;
+        private ObservableCollection<Medie> medii = new ObservableCollection<Medie>();
 
         public ProfesoriMedii()
         {
@@ -34,9 +36,77 @@ namespace PlatformaEducationala.Views
         {
             InitializeComponent();
             this.profesorId = profesorId;
-            ElevVM elevVM = this.DataContext as ElevVM;
-            elevi = elevVM.GetListaEleviProfesori(profesorId);
-            eleviDG.ItemsSource = elevi;
+            medieVM = DataContext as MedieVM;
+            mediiDG.ItemsSource = medieVM.ListaMedie;
+            Profesor profesor = medieVM.profesorBLL.ObtineProfesorDupaId(profesorId);
+            medieVM.materieBLL.ObtineToateMateriileDupaProfesor(profesor);
+        }
+
+        private void CalculareMedieButton(object sender, RoutedEventArgs e)
+        {
+            if (txtIdElev.SelectedItem != null)
+            {
+                int idElev;
+                string[] parts = txtIdElev.SelectedItem.ToString().Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
+                if (parts.Length > 1)
+                {
+                    string lastPart = parts[1].Trim();
+                    if (int.TryParse(lastPart, out idElev))
+                    {
+                        int sumaNote = 0;
+                        int numarNote = 0;
+                        int teza = 0;
+                        foreach (Nota nota in medieVM.notaBLL.ObtineToateNotele())
+                        {
+                            if (nota.IdElev == idElev && !nota.EsteTeza)
+                            {
+                                sumaNote += nota.Valoare;
+                                numarNote++;
+                            }
+                            if (nota.IdElev == idElev && nota.EsteTeza)
+                            {
+                                teza = nota.Valoare;
+                            }
+                        }
+                        if (numarNote > 2 && teza != 0)
+                        {
+                            double medieNote = (double)sumaNote / numarNote;
+                            double medieElev = ((medieNote * 3.0) + teza) / 4.0;
+                            Medie medie = new Medie();
+                            medie.Nota = (decimal)medieElev;
+                            medie.IdElev = idElev;
+                            int idUltimaMedie = (int)medieVM.ListaMedie[medieVM.ListaMedie.Count - 1].IdMedie;
+                            medie.IdMedie = idUltimaMedie + 1;
+                            medieVM.medieBLL.InserareMedie(medie);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Elevul nu are cel putin 3 note sau nu are nota la teza.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Te rog selecteaza un elev pentru a ii calcula media.", "Eroare", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void InsertButtonClick(object sender, RoutedEventArgs e)
+        {
+            mediiDG.ItemsSource = medieVM.ListaMedie;
+        }
+
+        private void InsertButtonPreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Button button)
+            {
+                if (button.Command != null && button.Command.CanExecute(button.CommandParameter))
+                {
+                    button.Command.Execute(button.CommandParameter);
+                }
+            }
+            InsertButtonClick(sender, e);
         }
     }
 }

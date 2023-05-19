@@ -64,5 +64,10 @@ namespace PlatformaEducationala.Models.EntityLayer
                 NotifyPropertyChanged("Nota");
             }
         }
+
+        public static implicit operator int(Medie v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

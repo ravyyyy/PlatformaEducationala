@@ -29,7 +29,7 @@
         </DataGrid>
         <WrapPanel>
             <Button Content="Inserare" Margin="15" Width="100" Height="30"
-                    Command="{Binding ComandaInserare}">
+                    Command="{Binding ComandaInserare}" PreviewMouseDown="InsertButtonPreviewMouseDown">
                 <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource notaConvert}">
                         <Binding ElementName="txtIdMaterie" Path="Text"/>
@@ -42,7 +42,7 @@
                 </Button.CommandParameter>
             </Button>
             <Button Content="Anulare Nota" Margin="15" Width="100" Command="{Binding ComandaStergere}"
-                    CommandParameter="{Binding ElementName=noteDG, Path=SelectedItem}"/>
+                    CommandParameter="{Binding ElementName=noteDG, Path=SelectedItem}" PreviewMouseDown="InsertButtonPreviewMouseDown"/>
         </WrapPanel>
         <WrapPanel Margin="0,15,0,0">
             <Label Width="150" FontSize="15">Nume + Id Materie:</Label>

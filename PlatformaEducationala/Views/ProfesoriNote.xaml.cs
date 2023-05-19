@@ -13,6 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 
 namespace PlatformaEducationala.Views
@@ -23,6 +24,7 @@ namespace PlatformaEducationala.Views
     public partial class ProfesoriNote : Window
     {
         private int profesorId;
+        NotaVM notaVM;
         private ObservableCollection<Nota> note = new ObservableCollection<Nota>();
 
         public ProfesoriNote()
@@ -34,7 +36,7 @@ namespace PlatformaEducationala.Views
         {
             InitializeComponent();
             this.profesorId = profesorId;
-            NotaVM notaVM = this.DataContext as NotaVM;
+            notaVM = this.DataContext as NotaVM;
             note = notaVM.GetListaNoteProfesori(profesorId);
             noteDG.ItemsSource = note;
             Profesor profesor = notaVM.profesorBLL.ObtineProfesorDupaId(profesorId);
@@ -60,6 +62,24 @@ namespace PlatformaEducationala.Views
                 }
             }
             txtIdElev.ItemsSource = elevi;
+        }
+
+        private void InsertButtonClick(object sender, RoutedEventArgs e)
+        {
+            note = notaVM.GetListaNoteProfesori(profesorId);
+            noteDG.ItemsSource = note;
+        }
+
+        private void InsertButtonPreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Button button)
+            {
+                if (button.Command != null && button.Command.CanExecute(button.CommandParameter))
+                {
+                    button.Command.Execute(button.CommandParameter);
+                }
+            }
+            InsertButtonClick(sender, e);
         }
     }
 }

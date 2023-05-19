@@ -14,14 +14,31 @@ namespace PlatformaEducationala.ViewModels
 {
     public class MedieVM : BasePropertyChanged
     {
-        MedieBLL medieBLL = new MedieBLL();
+        public MedieBLL medieBLL = new MedieBLL();
+        public ProfesorBLL profesorBLL = new ProfesorBLL();
         ElevBLL elevBLL = new ElevBLL();
-        MaterieBLL materieBLL = new MaterieBLL();
+        public MaterieBLL materieBLL = new MaterieBLL();
+        public NotaBLL notaBLL = new NotaBLL();
 
         public ObservableCollection<KeyValuePair<string, int>> ListaIdElevi { get; set; }
         public ObservableCollection<KeyValuePair<string, int>> ListaIdMaterii { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> ListaIdEleviDupaProfesor { get; set; }
 
         public ObservableCollection<KeyValuePair<string, int>> GetListaIdElevi()
+        {
+            ObservableCollection<KeyValuePair<string, int>> listaIdElevi = new ObservableCollection<KeyValuePair<string, int>>();
+            foreach (Elev elev in elevBLL.ObtineTotiElevii())
+            {
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(elev.Nume, (int)elev.IdElev);
+                if (!listaIdElevi.Contains(pair))
+                {
+                    listaIdElevi.Add(pair);
+                }
+            }
+            return listaIdElevi;
+        }
+
+        public ObservableCollection<KeyValuePair<string, int>> GetListaIdEleviProfesor(Profesor profesor)
         {
             ObservableCollection<KeyValuePair<string, int>> listaIdElevi = new ObservableCollection<KeyValuePair<string, int>>();
             foreach (Elev elev in elevBLL.ObtineTotiElevii())

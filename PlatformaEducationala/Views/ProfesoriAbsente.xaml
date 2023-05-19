@@ -27,7 +27,7 @@
         </DataGrid>
         <WrapPanel>
             <Button Content="Inserare" Margin="15" Width="100" Height="30"
-                    Command="{Binding ComandaInserare}">
+                    Command="{Binding ComandaInserare}" PreviewMouseDown="InsertButtonPreviewMouseDown">
                 <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource absentaConvert}">
                         <Binding ElementName="txtIdMaterie" Path="Text"/>
