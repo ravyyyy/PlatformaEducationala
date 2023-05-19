@@ -97,6 +97,27 @@
     <Compile Include="Views\Clase.xaml.cs">
       <DependentUpon>Clase.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DirigintiAbsente.xaml.cs">
+      <DependentUpon>DirigintiAbsente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DirigintiAbsenteNemotivate.xaml.cs">
+      <DependentUpon>DirigintiAbsenteNemotivate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DirigintiIerarhie.xaml.cs">
+      <DependentUpon>DirigintiIerarhie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DirigintiMedii.xaml.cs">
+      <DependentUpon>DirigintiMedii.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DirigintiMotivariAbsente.xaml.cs">
+      <DependentUpon>DirigintiMotivariAbsente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DirigintiPremiantiCorigentiRepetenti.xaml.cs">
+      <DependentUpon>DirigintiPremiantiCorigentiRepetenti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DirigintiSituatieExmatriculare.xaml.cs">
+      <DependentUpon>DirigintiSituatieExmatriculare.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ElevAnStudiuSpecializare.xaml.cs">
       <DependentUpon>ElevAnStudiuSpecializare.xaml</DependentUpon>
     </Compile>
@@ -150,6 +171,34 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Clase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirigintiAbsente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirigintiAbsenteNemotivate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirigintiIerarhie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirigintiMedii.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirigintiMotivariAbsente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirigintiPremiantiCorigentiRepetenti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirigintiSituatieExmatriculare.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

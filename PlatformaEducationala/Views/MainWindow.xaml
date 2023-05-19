@@ -51,13 +51,13 @@
                 <MenuItem.Icon>
                     <Image Source="/Images/diriginte.jpg" Width="20" Height="20"/>
                 </MenuItem.Icon>
-                <MenuItem Header="Motivare Absente"/>
-                <MenuItem Header="Vizualizare Absente"/>
-                <MenuItem Header="Vizualizare Absente Nemotivate"/>
-                <MenuItem Header="Vizualizare Medii Finale"/>
-                <MenuItem Header="Vizualizare Ierarhie"/>
-                <MenuItem Header="Vizualizare Premianti"/>
-                <MenuItem Header="Afisare Elevi in Situatie de Exmatriculare"/>
+                <MenuItem Header="Motivare Absente" Click="dirigintiMotivareAbsenteMenuItem_Click"/>
+                <MenuItem Header="Vizualizare Absente" Click="dirigintiAbsenteMenuItem_Click"/>
+                <MenuItem Header="Vizualizare Absente Nemotivate" Click="dirigintiAbsenteNemotivateMenuItem_Click"/>
+                <MenuItem Header="Vizualizare Medii Finale" Click="dirigintiMediiMenuItem_Click"/>
+                <MenuItem Header="Vizualizare Ierarhie" Click="dirigintiIerarhieMenuItem_Click"/>
+                <MenuItem Header="Vizualizare Premianti" Click="dirigintiPremiantiMenuItem_Click"/>
+                <MenuItem Header="Afisare Elevi in Situatie de Exmatriculare" Click="dirigintiExmatriculareMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Elev">
                 <MenuItem.Icon>
@@ -84,6 +84,10 @@
             <WrapPanel Margin="0,15,0,0">
                 <Label Width="150">Nume + Id Elev:</Label>
                 <ComboBox x:Name="eleviCB" Width="200" ItemsSource="{Binding Elevi}"></ComboBox>
+            </WrapPanel>
+            <WrapPanel Margin="0,15,0,0">
+                <Label Width="150">Nume + Id Materie:</Label>
+                <ComboBox x:Name="materiiCB" Width="200" ItemsSource="{Binding Materii}"></ComboBox>
             </WrapPanel>
         </WrapPanel>
     </DockPanel>

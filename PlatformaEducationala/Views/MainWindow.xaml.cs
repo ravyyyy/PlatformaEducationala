@@ -209,5 +209,129 @@ namespace PlatformaEducationala.Views
                 MessageBox.Show("Trebuie selectat un elev!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void dirigintiMotivareAbsenteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (dirigintiCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = dirigintiCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    DirigintiAbsente dirigintiAbsente = new DirigintiAbsente(kv.Value);
+                    dirigintiAbsente.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un diriginte!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void dirigintiAbsenteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (dirigintiCB.SelectedItem != null && eleviCB.SelectedItem != null && materiiCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = dirigintiCB.SelectedItem as KeyValuePair<string, int>?;
+                KeyValuePair<string, int>? pair2 = eleviCB.SelectedItem as KeyValuePair<string, int>?;
+                KeyValuePair<string, int>? pair3 = materiiCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv && pair2 is KeyValuePair<string, int> kv2 && pair3 is KeyValuePair<string, int> kv3)
+                {
+                    DirigintiAbsente dirigintiAbsente = new DirigintiAbsente(kv.Value, kv2.Value, kv3.Value);
+                    dirigintiAbsente.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un diriginte, elev si materie!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void dirigintiAbsenteNemotivateMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (dirigintiCB.SelectedItem != null && eleviCB.SelectedItem != null && materiiCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = dirigintiCB.SelectedItem as KeyValuePair<string, int>?;
+                KeyValuePair<string, int>? pair2 = eleviCB.SelectedItem as KeyValuePair<string, int>?;
+                KeyValuePair<string, int>? pair3 = materiiCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv && pair2 is KeyValuePair<string, int> kv2 && pair3 is KeyValuePair<string, int> kv3)
+                {
+                    DirigintiAbsenteNemotivate dirigintiAbsenteNemotivate = new DirigintiAbsenteNemotivate(kv.Value, kv2.Value, kv3.Value);
+                    dirigintiAbsenteNemotivate.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un diriginte, elev si materie!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void dirigintiMediiMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (dirigintiCB.SelectedItem != null && eleviCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = dirigintiCB.SelectedItem as KeyValuePair<string, int>?;
+                KeyValuePair<string, int>? pair2 = eleviCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv && pair2 is KeyValuePair<string, int> kv2)
+                {
+                    DirigintiMedii dirigintiMedii = new DirigintiMedii(kv.Value, kv2.Value);
+                    dirigintiMedii.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un diriginte si un elev!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void dirigintiIerarhieMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (dirigintiCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = dirigintiCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    DirigintiIerarhie dirigintiIerarhie = new DirigintiIerarhie(kv.Value);
+                    dirigintiIerarhie.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un diriginte!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void dirigintiPremiantiMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (dirigintiCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = dirigintiCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    DirigintiPremiantiCorigentiRepetenti dirigintiPremiantiCorigentiRepetenti = new DirigintiPremiantiCorigentiRepetenti(kv.Value);
+                    dirigintiPremiantiCorigentiRepetenti.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un diriginte!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void dirigintiExmatriculareMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (dirigintiCB.SelectedItem != null)
+            {
+                KeyValuePair<string, int>? pair = dirigintiCB.SelectedItem as KeyValuePair<string, int>?;
+                if (pair is KeyValuePair<string, int> kv)
+                {
+                    DirigintiSituatieExmatriculare dirigintiSituatieExmatriculare = new DirigintiSituatieExmatriculare(kv.Value);
+                    dirigintiSituatieExmatriculare.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Trebuie selectat un diriginte!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

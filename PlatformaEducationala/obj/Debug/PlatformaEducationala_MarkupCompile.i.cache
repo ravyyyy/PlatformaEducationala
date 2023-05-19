@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\App.xaml
-191894071249
+26627646039
 
-75470917339
+821186432501
 15-403622609
-Views\Absente.xaml;Views\Clase.xaml;Views\ElevAnStudiuSpecializare.xaml;Views\Elevi.xaml;Views\EleviAbsente.xaml;Views\EleviMateriale.xaml;Views\EleviMedii.xaml;Views\EleviNote.xaml;Views\MainWindow.xaml;Views\Materiale.xaml;Views\Materii.xaml;Views\Medii.xaml;Views\Note.xaml;Views\Profesori.xaml;Views\ProfesoriAbsente.xaml;Views\ProfesoriMateriale.xaml;Views\ProfesoriMedii.xaml;Views\ProfesoriNote.xaml;Views\Specializari.xaml;
+Views\Absente.xaml;Views\Clase.xaml;Views\DirigintiAbsente.xaml;Views\DirigintiAbsenteNemotivate.xaml;Views\DirigintiIerarhie.xaml;Views\DirigintiMedii.xaml;Views\DirigintiMotivariAbsente.xaml;Views\DirigintiPremiantiCorigentiRepetenti.xaml;Views\DirigintiSituatieExmatriculare.xaml;Views\ElevAnStudiuSpecializare.xaml;Views\Elevi.xaml;Views\EleviAbsente.xaml;Views\EleviMateriale.xaml;Views\EleviMedii.xaml;Views\EleviNote.xaml;Views\MainWindow.xaml;Views\Materiale.xaml;Views\Materii.xaml;Views\Medii.xaml;Views\Note.xaml;Views\Profesori.xaml;Views\ProfesoriAbsente.xaml;Views\ProfesoriMateriale.xaml;Views\ProfesoriMedii.xaml;Views\ProfesoriNote.xaml;Views\Specializari.xaml;
 
 True
 

@@ -9,10 +9,26 @@ namespace PlatformaEducationala.ViewModels
     {
         public ProfesorBLL profesorBLL = new ProfesorBLL();
         public ElevBLL elevBLL = new ElevBLL();
+        MaterieBLL materieBLL = new MaterieBLL();
 
         public ObservableCollection<KeyValuePair<string, int>> Profesori { get; set; }
         public ObservableCollection<KeyValuePair<string, int>> Diriginti { get; set; }
         public ObservableCollection<KeyValuePair<string, int>> Elevi { get; set; }
+        public ObservableCollection<KeyValuePair<string, int>> Materii { get; set; }
+
+        public ObservableCollection<KeyValuePair<string, int>> GetMaterii()
+        {
+            ObservableCollection<KeyValuePair<string, int>> materii = new ObservableCollection<KeyValuePair<string, int>>();
+            foreach (Materie materie in materieBLL.ObtineToateMateriile())
+            {
+                KeyValuePair<string, int> pair = new KeyValuePair<string, int>(materie.Nume, (int)materie.IdMaterie);
+                if (!materii.Contains(pair))
+                {
+                    materii.Add(pair);
+                }
+            }
+            return materii;
+        }
 
         private ObservableCollection<KeyValuePair<string, int>> GetProfesori()
         {
@@ -61,6 +77,7 @@ namespace PlatformaEducationala.ViewModels
             Profesori = GetProfesori();
             Diriginti = GetDiriginti();
             Elevi = GetElevi();
+            Materii = GetMaterii();
         }
     }
 }

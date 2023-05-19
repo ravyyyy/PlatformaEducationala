@@ -76,3 +76,17 @@ D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\
 D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\EleviAbsente.baml
 D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\EleviMedii.g.cs
 D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\EleviMedii.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiAbsente.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiAbsenteNemotivate.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiIerarhie.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiMedii.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiMotivariAbsente.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiPremiantiCorigentiRepetenti.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiSituatieExmatriculare.g.cs
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiAbsente.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiAbsenteNemotivate.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiIerarhie.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiMedii.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiMotivariAbsente.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiPremiantiCorigentiRepetenti.baml
+D:\Facultate\Anul II\Semestrul II\Medii vizuale de programare\Laboratoare\Tema3\PlatformaEducationala\PlatformaEducationala\obj\Debug\Views\DirigintiSituatieExmatriculare.baml
