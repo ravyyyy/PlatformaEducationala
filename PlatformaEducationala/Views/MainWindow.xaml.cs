@@ -217,8 +217,8 @@ namespace PlatformaEducationala.Views
                 KeyValuePair<string, int>? pair = dirigintiCB.SelectedItem as KeyValuePair<string, int>?;
                 if (pair is KeyValuePair<string, int> kv)
                 {
-                    DirigintiAbsente dirigintiAbsente = new DirigintiAbsente(kv.Value);
-                    dirigintiAbsente.Show();
+                    DirigintiMotivariAbsente dirigintiMotivareAbsente = new DirigintiMotivariAbsente(kv.Value);
+                    dirigintiMotivareAbsente.Show();
                 }
             }
             else

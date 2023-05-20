@@ -12,6 +12,9 @@ namespace PlatformaEducationala.ViewModels
         ClasaBLL clasaBLL = new ClasaBLL();
         SpecializareBLL specializareBLL = new SpecializareBLL();
         ProfesorBLL profesorBLL = new ProfesorBLL();
+        public ElevBLL elevBLL = new ElevBLL();
+        public MedieBLL medieBLL = new MedieBLL();
+        public MaterieBLL materieBLL = new MaterieBLL();
 
         public ObservableCollection<KeyValuePair<string, int>> ListaIdSpecializari { get; set; }
         public ObservableCollection<KeyValuePair<string, int>> ListaIdProfesori { get; set; }

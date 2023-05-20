@@ -125,5 +125,30 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public Materie ObtineMaterieDupaId(int materieId)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                Materie materie = new Materie();
+                SqlCommand cmd = new SqlCommand("ObtineMaterieDupaId", con)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+                SqlParameter parametruMaterieId = new SqlParameter("@materie_id", materieId);
+                cmd.Parameters.Add(parametruMaterieId);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    materie.IdMaterie = (int)reader[0];
+                    materie.Nume = reader[1].ToString();
+                    materie.IdProfesor = (int)reader[2];
+                    materie.AreTeza = (bool)reader[3];
+                    materie.AnStudiu = (int)reader[4];
+                }
+                return materie;
+            }
+        }
     }
 }

@@ -69,12 +69,12 @@ namespace PlatformaEducationala.Views
                                     {
                                         double medieNote = (double)sumaNote / numarNote;
                                         double medieElev = ((medieNote * 3.0) + teza) / 4.0;
-                                        int idUltimaMedie = (int)medieVM.ListaMedie[medieVM.ListaMedie.Count - 1].IdMedie;
+                                        int idUltimaMedie = (int)medieVM.ListaMedie[medieVM.ListaMedie.Count - 1].IdMedie + 1;
                                         Medie medie = new Medie
                                         {
-                                            Nota = (decimal)medieElev,
+                                            Nota = medieElev,
                                             IdElev = idElev,
-                                            IdMedie = idUltimaMedie + 1,
+                                            IdMedie = idUltimaMedie,
                                             IdMaterie = idMaterie
                                         };
                                         medieVM.medieBLL.InserareMedie(medie);

@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using PlatformaEducationala.Models.EntityLayer;
+using PlatformaEducationala.ViewModels;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace PlatformaEducationala.Views
 {
@@ -22,6 +25,16 @@ namespace PlatformaEducationala.Views
             this.diriginteId = diriginteId;
             this.elevId = elevId;
             this.materieId = materieId;
+            AbsentaVM absentaVM = DataContext as AbsentaVM;
+            ObservableCollection<Absenta> absente = new ObservableCollection<Absenta>();
+            foreach (Absenta absenta in absentaVM.ListaAbsente)
+            {
+                if (absenta.IdMaterie == materieId && absenta.IdElev == elevId && !absente.Contains(absenta) && !absenta.EsteMotivata)
+                {
+                    absente.Add(absenta);
+                }
+            }
+            gridAbsente.ItemsSource = absente;
         }
     }
 }

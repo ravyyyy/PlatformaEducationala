@@ -3,10 +3,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
+        xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
         xmlns:local="clr-namespace:PlatformaEducationala.Views"
         mc:Ignorable="d"
-        Title="DirigintiMotivariAbsente" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="DirigintiMotivariAbsente" Height="396" Width="358">
+    <Window.DataContext>
+        <ctx:AbsentaVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:ConvertorAbsenta x:Key="absentaConvert"/>
+        </StackPanel.Resources>
+        <DataGrid Name="gridAbsente" Margin="0,15,0,0" AutoGenerateColumns="False"
+                  Height="250" ItemsSource="{Binding ListaAbsente}" IsReadOnly="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id Materie" Binding="{Binding IdMaterie}"/>
+                <DataGridTextColumn Header="Id Elev" Binding="{Binding IdElev}"/>
+                <DataGridTextColumn Header="Data Absenta" Binding="{Binding DataAbsenta}"/>
+                <DataGridTextColumn Header="Este Motivata" Binding="{Binding EsteMotivata}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Este Motivata:</Label>
+            <CheckBox Name="txtEsteMotivata" Width="200" IsChecked="{Binding ElementName=gridAbsente,
+                Path=SelectedItem.EsteMotivata, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <Button Content="Actualizare" Margin="15" Width="100" Command="{Binding ComandaActualizare}"
+                    CommandParameter="{Binding ElementName=gridAbsente, Path=SelectedItem}"/>
+    </StackPanel>
 </Window>

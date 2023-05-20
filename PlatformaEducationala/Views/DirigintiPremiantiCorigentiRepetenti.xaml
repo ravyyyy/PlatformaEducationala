@@ -3,10 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
+        xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
         xmlns:local="clr-namespace:PlatformaEducationala.Views"
         mc:Ignorable="d"
-        Title="DirigintiPremiantiCorigentiRepetenti" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="DirigintiPremiantiCorigentiRepetenti" Height="450" Width="401">
+    <Window.DataContext>
+        <ctx:ClasaVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:ConvertorClasa x:Key="clasaConvert"/>
+        </StackPanel.Resources>
+        <Label>Premianti:</Label>
+        <WrapPanel>
+            <Label>Locul I:</Label>
+            <TextBlock x:Name="txtLocul1"></TextBlock>
+        </WrapPanel>
+        <WrapPanel>
+            <Label>Locul II:</Label>
+            <TextBlock x:Name="txtLocul2"></TextBlock>
+        </WrapPanel>
+        <WrapPanel>
+            <Label>Locul III:</Label>
+            <TextBlock x:Name="txtLocul3"></TextBlock>
+        </WrapPanel>
+        <WrapPanel>
+            <Label>Mentiune:</Label>
+            <TextBlock x:Name="txtMentiune"></TextBlock>
+        </WrapPanel>
+        <Label>Corigenti:</Label>
+        <TextBlock x:Name="txtCorigenti"></TextBlock>
+        <Label>Repetenti:</Label>
+        <TextBlock x:Name="txtRepetenti"></TextBlock>
+    </StackPanel>
 </Window>

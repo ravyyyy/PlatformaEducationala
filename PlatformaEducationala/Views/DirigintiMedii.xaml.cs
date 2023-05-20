@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using PlatformaEducationala.Models.EntityLayer;
+using PlatformaEducationala.ViewModels;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace PlatformaEducationala.Views
 {
@@ -20,6 +23,21 @@ namespace PlatformaEducationala.Views
             InitializeComponent();
             this.diriginteId = diriginteId;
             this.elevId = elevId;
+            double medieFinala = 0.0;
+            ObservableCollection<Medie> medii = new ObservableCollection<Medie>();
+            MedieVM medieVM = DataContext as MedieVM;
+            foreach (Medie medie in medieVM.ListaMedie)
+            {
+                if (!medii.Contains(medie) && medie.IdElev == elevId)
+                {
+                    medii.Add(medie);
+                }
+            }
+            foreach (Medie medie in medii)
+            {
+                medieFinala += medie.Nota;
+            }
+            txtMedieGenerala.Text = (medieFinala / medii.Count - 1).ToString();
         }
     }
 }

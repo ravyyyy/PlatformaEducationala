@@ -3,10 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
+        xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
         xmlns:local="clr-namespace:PlatformaEducationala.Views"
         mc:Ignorable="d"
-        Title="DirigintiIerarhie" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="DirigintiIerarhie" Height="301" Width="270">
+    <Window.DataContext>
+        <ctx:ClasaVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:ConvertorClasa x:Key="clasaConvert"/>
+        </StackPanel.Resources>
+        <TextBlock x:Name="txtSortare">
+        </TextBlock>
+    </StackPanel>
 </Window>

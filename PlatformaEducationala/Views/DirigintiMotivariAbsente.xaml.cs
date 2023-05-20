@@ -19,9 +19,17 @@ namespace PlatformaEducationala.Views
     /// </summary>
     public partial class DirigintiMotivariAbsente : Window
     {
+        int diriginteId;
+
         public DirigintiMotivariAbsente()
         {
             InitializeComponent();
+        }
+
+        public DirigintiMotivariAbsente(int diriginteId)
+        {
+            InitializeComponent();
+            this.diriginteId = diriginteId;
         }
     }
 }

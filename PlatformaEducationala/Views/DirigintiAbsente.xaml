@@ -3,10 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
+        xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
         xmlns:local="clr-namespace:PlatformaEducationala.Views"
         mc:Ignorable="d"
-        Title="DirigintiAbsente" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="DirigintiAbsente" Height="196" Width="291">
+    <Window.DataContext>
+        <ctx:AbsentaVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:ConvertorAbsenta x:Key="absentaConvert"/>
+        </StackPanel.Resources>
+        <DataGrid Name="gridAbsente" Margin="0,15,0,0" AutoGenerateColumns="False"
+                  Height="165" ItemsSource="{Binding ListaAbsente}" IsReadOnly="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Data Absenta" Binding="{Binding DataAbsenta}"/>
+                <DataGridTextColumn Header="Este Motivata" Binding="{Binding EsteMotivata}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
 </Window>

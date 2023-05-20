@@ -21,6 +21,11 @@ namespace PlatformaEducationala.Models.BusinessLogicLayer
             return materieDAL.ObtineToateMateriile();
         }
 
+        public Materie ObtineMaterieDupaId(int materieId)
+        {
+            return materieDAL.ObtineMaterieDupaId(materieId);
+        }
+
         public void ObtineToateMateriileDupaProfesor(Profesor profesor)
         {
             ListaMaterii.Clear();

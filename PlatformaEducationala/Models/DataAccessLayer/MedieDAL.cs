@@ -24,7 +24,7 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                         IdMedie = reader.GetInt32(0),
                         IdElev = reader.GetInt32(1),
                         IdMaterie = reader.GetInt32(2),
-                        Nota = reader.GetDecimal(3)
+                        Nota = (double)reader.GetDecimal(3)
                     };
                     rezultat.Add(medie);
                 }
@@ -44,8 +44,10 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                 SqlParameter parametruIdElev = new SqlParameter("@id_elev", medie.IdElev);
                 SqlParameter parametruIdMaterie = new SqlParameter("@id_materie", medie.IdMaterie);
                 SqlParameter parametruNota = new SqlParameter("@nota", medie.Nota);
-                SqlParameter parametruMedieId = new SqlParameter("@medie_id", System.Data.SqlDbType.Int);
-                parametruMedieId.Direction = System.Data.ParameterDirection.Output;
+                SqlParameter parametruMedieId = new SqlParameter("@medie_id", System.Data.SqlDbType.Int)
+                {
+                    Direction = System.Data.ParameterDirection.Output
+                };
                 cmd.Parameters.Add(parametruIdElev);
                 cmd.Parameters.Add(parametruIdMaterie);
                 cmd.Parameters.Add(parametruNota);
@@ -112,7 +114,7 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                         IdMedie = reader.GetInt32(0),
                         IdElev = reader.GetInt32(1),
                         IdMaterie = reader.GetInt32(2),
-                        Nota = reader.GetDecimal(3)
+                        Nota = reader.GetDouble(3)
                     });
                 }
                 return rezultat;
@@ -139,7 +141,7 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                         IdMedie = reader.GetInt32(0),
                         IdElev = reader.GetInt32(1),
                         IdMaterie = reader.GetInt32(2),
-                        Nota = reader.GetDecimal(3)
+                        Nota = reader.GetDouble(3)
                     });
                 }
                 return rezultat;

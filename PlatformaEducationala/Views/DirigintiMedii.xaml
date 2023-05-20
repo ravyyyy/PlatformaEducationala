@@ -3,10 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
+        xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
         xmlns:local="clr-namespace:PlatformaEducationala.Views"
         mc:Ignorable="d"
-        Title="DirigintiMedii" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="DirigintiMedii" Height="271" Width="361">
+    <Window.DataContext>
+        <ctx:MedieVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:ConvertorMedie x:Key="medieConvert"/>
+        </StackPanel.Resources>
+        <DataGrid Name="gridAbsente" Margin="0,15,0,0" AutoGenerateColumns="False"
+                  Height="165" ItemsSource="{Binding ListaMedie}" IsReadOnly="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id Materie" Binding="{Binding IdMaterie}"/>
+                <DataGridTextColumn Header="Nota" Binding="{Binding Nota}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Medie Generala: </Label>
+            <TextBlock Width="200" x:Name="txtMedieGenerala"></TextBlock>
+        </WrapPanel>
+    </StackPanel>
 </Window>
