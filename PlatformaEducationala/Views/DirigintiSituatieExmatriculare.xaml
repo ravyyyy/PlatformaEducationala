@@ -3,10 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
+        xmlns:convert="clr-namespace:PlatformaEducationala.Converters"
         xmlns:local="clr-namespace:PlatformaEducationala.Views"
         mc:Ignorable="d"
-        Title="DirigintiSituatieExmatriculare" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="DirigintiSituatieExmatriculare" Height="307" Width="342">
+    <Window.DataContext>
+        <ctx:ClasaVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <Label>Elevi in Situatie de Exmatriculare din cauza Absentelor:</Label>
+        <TextBlock x:Name="txtSituatieExmatriculare"></TextBlock>
+    </StackPanel>
 </Window>
