@@ -20,7 +20,7 @@ namespace PlatformaEducationala.Views
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ElevAnStudiuSpecializareVM elevAnStudiuSpecializareVM = this.DataContext as ElevAnStudiuSpecializareVM;
+            ElevAnStudiuSpecializareVM elevAnStudiuSpecializareVM = DataContext as ElevAnStudiuSpecializareVM;
             KeyValuePair<string, int>? pair = txtElev.SelectedItem as KeyValuePair<string, int>?;
             if (pair is KeyValuePair<string, int> keyValue)
             {

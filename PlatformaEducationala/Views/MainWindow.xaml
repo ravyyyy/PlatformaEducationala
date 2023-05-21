@@ -34,8 +34,8 @@
                     <MenuItem Header="Medii" Click="mediiMenuItem_Click"/>
                     <MenuItem Header="Materiale" Click="materialeMenuItem_Click"/>
                 </MenuItem>
-                <MenuItem Header="Clasa - Specializare - Materie"/>
-                <MenuItem Header="Profesor - Materie - Clasa"/>
+                <MenuItem Header="Clasa - Specializare - Materie" Click="clasaSpecializareMaterieMenuItem_Click"/>
+                <MenuItem Header="Profesor - Materie - Clasa" Click="profesorMaterieClasaMenuItem_Click"/>
                 <MenuItem Header="Elev - Clasa - Specializare" Click="elevAnStudiuSpecializareMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Profesor">

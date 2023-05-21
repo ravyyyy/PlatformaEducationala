@@ -333,5 +333,16 @@ namespace PlatformaEducationala.Views
                 MessageBox.Show("Trebuie selectat un diriginte!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void clasaSpecializareMaterieMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ClasaSpecializareMaterie clasaSpecializareMaterie = new ClasaSpecializareMaterie();
+            clasaSpecializareMaterie.Show();
+        }
+
+        private void profesorMaterieClasaMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

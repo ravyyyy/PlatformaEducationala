@@ -1,0 +1,43 @@
+﻿<Window x:Class="PlatformaEducationala.Views.ClasaSpecializareMaterie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctx="clr-namespace:PlatformaEducationala.ViewModels"
+        xmlns:local="clr-namespace:PlatformaEducationala.Views"
+        mc:Ignorable="d"
+        Title="ClasaSpecializareMaterie" Height="247" Width="389">
+    <Window.DataContext>
+        <ctx:ClasaSpecializareMaterieVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Nume + Id Materie:</Label>
+            <ComboBox Name="txtMaterie" Width="200" ItemsSource="{Binding ListaIdMaterii}"
+                      SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Key"/>
+                                    <Binding Path="Value"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">An de Studiu:</Label>
+            <TextBox Name="txtAnStudiu" Width="200"></TextBox>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Nume + Id Specializare:</Label>
+            <ComboBox Name="txtSpecializare" Width="200">
+            </ComboBox>
+        </WrapPanel>
+        <Button Content="Actualizare" Margin="15" Width="100" Click="Actualizare_Click"/>
+    </StackPanel>
+</Window>

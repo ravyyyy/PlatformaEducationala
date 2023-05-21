@@ -781,3 +781,19 @@ BEGIN
 	INNER JOIN Materie M ON M.an_studiu = C.an_studiu
 	WHERE M.id_profesor = @profesor_id
 END
+
+GO
+CREATE PROCEDURE ActualizareAnStudiuDupaMaterie
+	@materie_id INT,
+	@studiu_an INT,
+	@specializare_id INT
+AS
+BEGIN
+	UPDATE Materie SET
+		an_studiu = @studiu_an
+		WHERE id_materie = @materie_id
+
+	UPDATE Clasa SET
+		an_studiu = @studiu_an
+		WHERE id_specializare = @specializare_id
+END
