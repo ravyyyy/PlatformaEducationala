@@ -50,7 +50,7 @@ namespace PlatformaEducationala.ViewModels
             foreach (Profesor diriginte in profesorBLL.ObtineTotiProfesorii())
             {
                 KeyValuePair<string, int> pair = new KeyValuePair<string, int>(diriginte.Nume, (int)diriginte.IdProfesor);
-                if (!diriginti.Contains(pair))
+                if (!diriginti.Contains(pair) && diriginte.EsteDiriginte)
                 {
                     diriginti.Add(pair);
                 }
