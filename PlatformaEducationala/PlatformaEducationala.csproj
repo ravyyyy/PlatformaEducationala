@@ -91,6 +91,7 @@
     <Compile Include="ViewModels\MaterieVM.cs" />
     <Compile Include="ViewModels\MedieVM.cs" />
     <Compile Include="ViewModels\NotaVM.cs" />
+    <Compile Include="ViewModels\ProfesorMaterieClasaVM.cs" />
     <Compile Include="ViewModels\ProfesorVM.cs" />
     <Compile Include="Views\Absente.xaml.cs">
       <DependentUpon>Absente.xaml</DependentUpon>

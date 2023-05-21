@@ -342,7 +342,8 @@ namespace PlatformaEducationala.Views
 
         private void profesorMaterieClasaMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            ProfesorMaterieClasa profesorMaterieClasa = new ProfesorMaterieClasa();
+            profesorMaterieClasa.Show();
         }
     }
 }

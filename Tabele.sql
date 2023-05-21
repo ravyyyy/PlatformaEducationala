@@ -797,3 +797,14 @@ BEGIN
 		an_studiu = @studiu_an
 		WHERE id_specializare = @specializare_id
 END
+
+GO
+CREATE PROCEDURE ActualizareMaterieDupaProfesor
+	@an_studiu INT,
+	@profesor_id INT
+AS
+BEGIN
+	UPDATE Materie SET
+		an_studiu = @an_studiu
+		WHERE id_profesor = @profesor_id
+END
