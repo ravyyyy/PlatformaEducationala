@@ -24,14 +24,14 @@ namespace PlatformaEducationala.Views
             MedieVM medieVM = DataContext as MedieVM;
             ObservableCollection<Medie> medii = new ObservableCollection<Medie>();
             Elev elev = medieVM.elevBLL.ObtineElevDupaId(elevId);
-            double sumaMedii = 0.0;
+            decimal sumaMedii = 0;
             int numarMedii = 0;
             foreach (Medie medie in medieVM.ListaMedie)
             {
                 if (!medii.Contains(medie) && medie.IdElev == elev.IdElev)
                 {
                     medii.Add(medie);
-                    sumaMedii += (double)medie.Nota;
+                    sumaMedii += medie.Nota;
                     numarMedii++;
                 }
             }

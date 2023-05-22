@@ -7,7 +7,7 @@ namespace PlatformaEducationala.Models.EntityLayer
         private int? idMedie;
         private int? idElev;
         private int? idMaterie;
-        private double nota;
+        private decimal nota;
 
         public int? IdMedie
         {
@@ -48,7 +48,7 @@ namespace PlatformaEducationala.Models.EntityLayer
             }
         }
 
-        public double Nota
+        public decimal Nota
         {
             get
             {

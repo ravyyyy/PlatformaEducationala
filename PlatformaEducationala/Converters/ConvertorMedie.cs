@@ -12,7 +12,7 @@ namespace PlatformaEducationala.Converters
             string materie = values[1].ToString();
             int elevId = -1;
             int materieId = -1;
-            double nota;
+            decimal nota;
             string[] parts = elev.Split(new char[] { '[', ']', ',' }, StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length > 1)
             {
@@ -31,7 +31,7 @@ namespace PlatformaEducationala.Converters
                     return null;
                 }
             }
-            if (!double.TryParse(values[2].ToString(), out nota))
+            if (!decimal.TryParse(values[2].ToString(), out nota))
             { 
                 return null;
             }

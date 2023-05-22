@@ -23,7 +23,7 @@ namespace PlatformaEducationala.Views
             InitializeComponent();
             this.diriginteId = diriginteId;
             this.elevId = elevId;
-            double medieFinala = 0.0;
+            decimal medieFinala = 0;
             ObservableCollection<Medie> medii = new ObservableCollection<Medie>();
             MedieVM medieVM = DataContext as MedieVM;
             foreach (Medie medie in medieVM.ListaMedie)

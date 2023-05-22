@@ -66,18 +66,18 @@ namespace PlatformaEducationala.Views
                 }
             }
             string sortare = "";
-            ObservableCollection<Tuple<string, double>> pairs = new ObservableCollection<Tuple<string, double>>();
+            ObservableCollection<Tuple<string, decimal>> pairs = new ObservableCollection<Tuple<string, decimal>>();
             foreach (Elev elev in elevi)
             {
-                Tuple<string, double> pair = new Tuple<string, double>(elev.Nume, 0.0);
+                Tuple<string, decimal> pair = new Tuple<string, decimal>(elev.Nume, (decimal)0.0);
                 if (!pairs.Contains(pair))
                 {
                     pairs.Add(pair);
                 }
             }
-            foreach (Tuple<string, double> pair in pairs)
+            foreach (Tuple<string, decimal> pair in pairs)
             {
-                double medieElev = 0.0;
+                decimal medieElev = 0;
                 int numarMedii = 0;
                 int idElev = -1;
                 foreach (Elev elev in elevi)
@@ -95,7 +95,14 @@ namespace PlatformaEducationala.Views
                         medieElev += medie.Nota;
                     }
                 }
-                sortare += pair.Item1 + " -> " + (medieElev / numarMedii) + '\n';
+                if (numarMedii > 0)
+                {
+                    sortare += pair.Item1 + " -> " + (medieElev / numarMedii) + '\n';
+                }
+                else
+                {
+                    sortare += pair.Item1 + " -> " + medieElev + '\n';
+                }
             }
             txtSortare.Text = sortare;
         }

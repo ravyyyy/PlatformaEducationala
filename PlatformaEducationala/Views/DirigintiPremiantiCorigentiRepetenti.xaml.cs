@@ -66,10 +66,10 @@ namespace PlatformaEducationala.Views
                     }
                 }
             }
-            ObservableCollection<Tuple<string, double>> pairs = new ObservableCollection<Tuple<string, double>>();
+            ObservableCollection<Tuple<string, decimal>> pairs = new ObservableCollection<Tuple<string, decimal>>();
             foreach (Elev elev in elevi)
             {
-                double medieElev = 0.0;
+                decimal medieElev = 0;
                 int mediiElev = 0;
                 foreach (Medie medie in medii)
                 {
@@ -79,7 +79,15 @@ namespace PlatformaEducationala.Views
                         medieElev += medie.Nota;
                     }
                 }
-                Tuple<string, double> pair = new Tuple<string, double>(elev.Nume, medieElev / mediiElev);
+                Tuple<string, decimal> pair;
+                if (mediiElev > 0)
+                {
+                    pair = new Tuple<string, decimal>(elev.Nume, medieElev / mediiElev);
+                }
+                else
+                {
+                    pair = new Tuple<string, decimal>(elev.Nume, medieElev);
+                }
                 pairs.Add(pair);
             }
             pairs.OrderBy(p => p.Item2);

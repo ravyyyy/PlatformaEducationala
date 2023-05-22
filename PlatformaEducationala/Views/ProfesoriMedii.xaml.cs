@@ -67,8 +67,8 @@ namespace PlatformaEducationala.Views
                                     }
                                     if (numarNote > 2 && teza != 0)
                                     {
-                                        double medieNote = (double)sumaNote / numarNote;
-                                        double medieElev = ((medieNote * 3.0) + teza) / 4.0;
+                                        decimal medieNote = sumaNote / numarNote;
+                                        decimal medieElev = ((medieNote * 3) + teza) / 4;
                                         int idUltimaMedie = (int)medieVM.ListaMedie[medieVM.ListaMedie.Count - 1].IdMedie + 1;
                                         Medie medie = new Medie
                                         {

@@ -24,7 +24,7 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                         IdMedie = reader.GetInt32(0),
                         IdElev = reader.GetInt32(1),
                         IdMaterie = reader.GetInt32(2),
-                        Nota = (double)reader.GetDecimal(3)
+                        Nota = reader.GetDecimal(3)
                     };
                     rezultat.Add(medie);
                 }
@@ -114,7 +114,7 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                         IdMedie = reader.GetInt32(0),
                         IdElev = reader.GetInt32(1),
                         IdMaterie = reader.GetInt32(2),
-                        Nota = reader.GetDouble(3)
+                        Nota = reader.GetDecimal(3)
                     });
                 }
                 return rezultat;
@@ -141,7 +141,7 @@ namespace PlatformaEducationala.Models.DataAccessLayer
                         IdMedie = reader.GetInt32(0),
                         IdElev = reader.GetInt32(1),
                         IdMaterie = reader.GetInt32(2),
-                        Nota = reader.GetDouble(3)
+                        Nota = reader.GetDecimal(3)
                     });
                 }
                 return rezultat;
